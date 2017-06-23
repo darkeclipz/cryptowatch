@@ -10,7 +10,7 @@ Clone the project in Visual Studio and build it.
 
 **23-6-2017**
  - Added candlestick charts (5min/15min/30min/2hr/daily)
- - Added EMA 10/20 to the charts
+ - Added SMA 10/20 to the charts
  - Added volume to the charts
  - Chart update bugfix
  - Chart theming
