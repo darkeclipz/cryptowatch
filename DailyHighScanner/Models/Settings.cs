@@ -19,6 +19,8 @@ namespace DailyHighScanner.Models
 
         public string PoloniexApiSecret { get; set; } = "none";
 
+        public int ChartPeriodsToShow = 40;
+
         public static Settings Load(string filepath)
         {
             var json = File.ReadAllText(filepath);

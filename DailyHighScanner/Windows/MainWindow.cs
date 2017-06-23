@@ -17,12 +17,15 @@ namespace DailyHighScanner
     {
         private readonly string _settingsFilepath = @"Cryptowatch.Settings.json";
         private List<Symbol> Symbols { get; set; } = new List<Symbol>();
+        private Symbol SelectedSymbol { get; set; }
         private ScannerWindow _scanner;
         private ChartWindow _5minChart;
         private ChartWindow _15minChart;
         private ChartWindow _30minChart;
         private ChartWindow _2hrChart;
         private ChartWindow _dChart;
+        private TradingWindow _activeTrades;
+        private OrderBookWindow _orderBook;
 
         public MainWindow()
         {
@@ -34,6 +37,36 @@ namespace DailyHighScanner
             Initialize2HrMinChart();
             InitializeDChart();
             InitializeScanner();
+        }
+
+        private void InitializeOrderBook()
+        {
+            if (_orderBook == null || _orderBook.IsDisposed)
+            {
+                _orderBook = new OrderBookWindow();
+                _orderBook.MdiParent = this;
+                _orderBook.Show();
+            }
+            else
+            {
+                _orderBook.Focus();
+                _orderBook.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void InitializeActiveTrades()
+        {
+            if (_activeTrades == null || _activeTrades.IsDisposed)
+            {
+                _activeTrades = new TradingWindow();
+                _activeTrades.MdiParent = this;
+                _activeTrades.Show();
+            }
+            else
+            {
+                _activeTrades.Focus();
+                _activeTrades.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void InitializeSettings()
@@ -51,9 +84,19 @@ namespace DailyHighScanner
         {
             if(_5minChart == null || _5minChart.IsDisposed)
             {
-                _5minChart = new ChartWindow(50, PeriodType._5Min, "5");
+                _5minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._5Min, "5");
                 _5minChart.MdiParent = this;
                 _5minChart.Show();
+            }
+            else
+            {
+                _5minChart.Focus();
+                _5minChart.WindowState = FormWindowState.Normal;
+            }
+
+            if (SelectedSymbol != null)
+            {
+                _5minChart.SelectSymbol(SelectedSymbol);
             }
         }
 
@@ -61,9 +104,19 @@ namespace DailyHighScanner
         {
             if (_15minChart == null || _15minChart.IsDisposed)
             {
-                _15minChart = new ChartWindow(50, PeriodType._15Min, "15");
+                _15minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._15Min, "15");
                 _15minChart.MdiParent = this;
                 _15minChart.Show();
+            }
+            else
+            {
+                _15minChart.Focus();
+                _15minChart.WindowState = FormWindowState.Normal;
+            }
+
+            if (SelectedSymbol != null)
+            {
+                _15minChart.SelectSymbol(SelectedSymbol);
             }
         }
 
@@ -71,9 +124,19 @@ namespace DailyHighScanner
         {
             if (_30minChart == null || _30minChart.IsDisposed)
             {
-                _30minChart = new ChartWindow(50, PeriodType._30Min, "30");
+                _30minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._30Min, "30");
                 _30minChart.MdiParent = this;
                 _30minChart.Show();
+            }
+            else
+            {
+                _30minChart.Focus();
+                _30minChart.WindowState = FormWindowState.Normal;
+            }
+
+            if (SelectedSymbol != null)
+            {
+                _30minChart.SelectSymbol(SelectedSymbol);
             }
         }
 
@@ -81,9 +144,19 @@ namespace DailyHighScanner
         {
             if (_2hrChart == null || _2hrChart.IsDisposed)
             {
-                _2hrChart = new ChartWindow(50, PeriodType._2Hr, "2H");
+                _2hrChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._2Hr, "2H");
                 _2hrChart.MdiParent = this;
                 _2hrChart.Show();
+            }
+            else
+            {
+                _2hrChart.Focus();
+                _2hrChart.WindowState = FormWindowState.Normal;
+            }
+
+            if (SelectedSymbol != null)
+            {
+                _2hrChart.SelectSymbol(SelectedSymbol);
             }
         }
 
@@ -91,9 +164,19 @@ namespace DailyHighScanner
         {
             if (_dChart == null || _dChart.IsDisposed)
             {
-                _dChart = new ChartWindow(50, PeriodType._D, "D");
+                _dChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._D, "D");
                 _dChart.MdiParent = this;
                 _dChart.Show();
+            }
+            else
+            {
+                _dChart.Focus();
+                _dChart.WindowState = FormWindowState.Normal;
+            }
+
+            if (SelectedSymbol != null)
+            {
+                _dChart.SelectSymbol(SelectedSymbol);
             }
         }
 
@@ -107,6 +190,11 @@ namespace DailyHighScanner
                 _scanner.OnTickerUpdate += scanner_OnTickerUpdate;
                 _scanner.OnSymbolClick += SwitchSymbol;
             }
+            else
+            {
+                _scanner.Focus();
+                _scanner.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void scanner_OnTickerUpdate()
@@ -117,6 +205,16 @@ namespace DailyHighScanner
             {
                 toolStripStatusLabelBtc.Text = $"USDT_BTC: {usdtBtc.Last.ToString()}";
             }));
+
+            if(!string.IsNullOrEmpty(SelectedSymbol?.Name))
+            {
+                var symbolLast = _scanner.Tickers.FirstOrDefault(s => s.Name == SelectedSymbol.Name).Last;
+                _5minChart.UpdateLast((double)symbolLast);
+                _15minChart.UpdateLast((double)symbolLast);
+                _30minChart.UpdateLast((double)symbolLast);
+                _2hrChart.UpdateLast((double)symbolLast);
+                _dChart.UpdateLast((double)symbolLast);
+            }
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -157,6 +255,7 @@ namespace DailyHighScanner
         private void SwitchSymbol(Symbol symbol)
         {
             toolStripLabelSymbol.Text = $"{symbol.Name}@{symbol.Exchange}";
+            SelectedSymbol = symbol;
             _5minChart.SelectSymbol(symbol);
             _15minChart.SelectSymbol(symbol);
             _30minChart.SelectSymbol(symbol);
@@ -182,6 +281,41 @@ namespace DailyHighScanner
                 Globals.Settings.Save(_settingsFilepath);
                 settingsWindow.Close();
             }
+        }
+
+        private void chart5minToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Initialize5MinChart();
+        }
+
+        private void chart15minToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Initialize15MinChart();
+        }
+
+        private void chart30minToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Initialize30MinChart();
+        }
+
+        private void chart2hrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Initialize2HrMinChart();
+        }
+
+        private void chartDayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeDChart();
+        }
+
+        private void tradingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeActiveTrades();
+        }
+
+        private void orderBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeOrderBook();
         }
     }
 }

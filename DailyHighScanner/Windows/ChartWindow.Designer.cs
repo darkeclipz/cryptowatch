@@ -39,7 +39,7 @@
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // chart1
+            // stockChart
             // 
             this.stockChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -49,7 +49,7 @@
             legend1.Name = "Legend1";
             this.stockChart.Legends.Add(legend1);
             this.stockChart.Location = new System.Drawing.Point(12, 12);
-            this.stockChart.Name = "chart1";
+            this.stockChart.Name = "stockChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
@@ -68,13 +68,13 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // toolStripLabel
             // 
-            this.toolStripLabel.Name = "toolStripStatusLabel1";
+            this.toolStripLabel.Name = "toolStripLabel";
             this.toolStripLabel.Size = new System.Drawing.Size(111, 17);
             this.toolStripLabel.Text = "No symbol selected";
             // 
-            // label1
+            // statusLabel
             // 
             this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -82,7 +82,7 @@
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.statusLabel.Location = new System.Drawing.Point(12, 12);
-            this.statusLabel.Name = "label1";
+            this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(516, 277);
             this.statusLabel.TabIndex = 2;
             this.statusLabel.Text = "NO SYMBOL";

@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icons8-Windows-8-Finance-Bitcoin.ico</ApplicationIcon>
+    <ApplicationIcon>btc-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -56,6 +56,18 @@
     <Compile Include="Models\Candlestick.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="Windows\OrderBookWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\OrderBookWindow.Designer.cs">
+      <DependentUpon>OrderBookWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TradingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\TradingWindow.Designer.cs">
+      <DependentUpon>TradingWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ChartWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
     <Compile Include="Windows\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\OrderBookWindow.resx">
+      <DependentUpon>OrderBookWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\TradingWindow.resx">
+      <DependentUpon>TradingWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\ChartWindow.resx">
       <DependentUpon>ChartWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,9 +152,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
-    <Content Include="icon.ico" />
-    <Content Include="Icons8-Windows-8-Finance-Bitcoin.ico" />
+    <Content Include="btc-icon.ico" />
     <None Include="Resources\magnifier.png" />
     <None Include="Resources\chart_line.png" />
     <None Include="Resources\cog.png" />
@@ -144,6 +160,11 @@
     <None Include="Resources\application_tile_vertical.png" />
     <None Include="Resources\application_cascade.png" />
     <None Include="Resources\information.png" />
+    <None Include="Resources\money_add.png" />
+    <None Include="Resources\money_delete.png" />
+    <None Include="Resources\chart_line1.png" />
+    <None Include="Resources\book.png" />
+    <None Include="Resources\report.png" />
     <Content Include="scanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

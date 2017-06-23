@@ -84,6 +84,19 @@ namespace DailyHighScanner
                     WeightedAverage = candle.weightedAverage.Value
                 });
             }
+
+            for(int i = 10; i < candlesticks.Count; i++)
+            {
+                var sma10 = candlesticks.Skip(i - 10).Take(10).Sum(s => s.Close) / 10;
+                candlesticks[i].SMA10 = sma10;
+            }
+
+            for (int i = 20; i < candlesticks.Count; i++)
+            {
+                var sma20 = candlesticks.Skip(i - 20).Take(20).Sum(s => s.Close) / 20;
+                candlesticks[i].SMA20 = sma20;
+            }
+
             return candlesticks.Skip(candlesticks.Count - numberOfCandles).Take(numberOfCandles).ToList();
         }
     }

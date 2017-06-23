@@ -16,5 +16,11 @@ namespace DailyHighScanner.Models
         public double Volume { get; set; }
         public double QuoteVolume { get; set; }
         public double WeightedAverage { get; set; }
+
+
+        public double SMA10 { get; set; }
+        public double SMA20 { get; set; }
+        public double UpperBand { get; set; }
+        public double LowerBand { get; set; }
     }
 }
