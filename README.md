@@ -16,26 +16,6 @@ BTC: 12nx4c8T2zDYkLoHU4qnuSaSyBunx6Wzeb
 **Requires:**
  - .NET Framework
  - SQL Server Express
- 
-## Changelog
-
-**23-6-2017**
- - Added candlestick charts (5min/15min/30min/2hr/daily)
- - Added SMA 10/20 to the charts
- - Added volume to the charts
- - Chart update bugfix
- - Chart theming
- - Implemented settings
- - Randomly generated IV per configuration file
-
-**22-6-2017**
- - Switched to MDI form layout.
- - Added find symbol window.
- - Added various menu items.
- - Added events for switching symbol.
-
-**21-6-2017**
- - Added daily-high crypto scanner.
   
 ## Disclaimer
   
