@@ -3,6 +3,7 @@
 Cryptocurrency trading app for Poloniex.
 
 **Tip jar**
+
 BTC: 12nx4c8T2zDYkLoHU4qnuSaSyBunx6Wzeb
 
 ## Installation
