@@ -2,6 +2,9 @@
 
 Cryptocurrency trading app for Poloniex.
 
+**Tip jar**
+BTC: 12nx4c8T2zDYkLoHU4qnuSaSyBunx6Wzeb
+
 ## Installation
 
  1. Clone the project in Visual Studio and build it.
