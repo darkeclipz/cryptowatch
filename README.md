@@ -4,16 +4,16 @@ Cryptocurrency trading app for Poloniex.
 
 ## Installation
 
-**Requires:**
- - .NET Framework
- - SQL Server Express
-
  1. Clone the project in Visual Studio and build it.
  2. Open the application, and go to settings.
  3. Set up the database connection string.
  4. Set up the API.
  
 Note: your API key + secret is pretty poorly encrypted in the configuration file. But it's encrypted nonetheless.
+
+**Requires:**
+ - .NET Framework
+ - SQL Server Express
  
 ## Changelog
 
