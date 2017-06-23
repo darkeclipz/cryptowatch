@@ -30,6 +30,10 @@ namespace DailyHighScanner.Windows
                 chartEMA20.Checked = Globals.Settings.ChartSMA20;
                 chartVolume.Checked = Globals.Settings.ChartVolume;
                 filterTopVolume.Value = Globals.Settings.ScannerFilterTopVolumeCount;
+                scannerOnlyBtcMarkets.Checked = Globals.Settings.ScannerOnlyBtcMarkets;
+                chartResistanceLevels.Checked = Globals.Settings.ChartResistanceLevels;
+                chartSupportLevels.Checked = Globals.Settings.ChartSupportLevels;
+                chartNumberOfLevels.Value = Globals.Settings.ChartNumberOfLevels;
             }
             catch(Exception ex)
             {
@@ -50,6 +54,10 @@ namespace DailyHighScanner.Windows
                 Globals.Settings.ChartSMA20 = chartEMA20.Checked;
                 Globals.Settings.ChartVolume = chartVolume.Checked;
                 Globals.Settings.ScannerFilterTopVolumeCount = (int)filterTopVolume.Value;
+                Globals.Settings.ScannerOnlyBtcMarkets = scannerOnlyBtcMarkets.Checked;
+                Globals.Settings.ChartResistanceLevels = chartResistanceLevels.Checked;
+                Globals.Settings.ChartSupportLevels = chartSupportLevels.Checked;
+                Globals.Settings.ChartNumberOfLevels = (int)chartNumberOfLevels.Value;
 
                 this.DialogResult = DialogResult.OK;
                 this.Hide();
@@ -60,24 +68,9 @@ namespace DailyHighScanner.Windows
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonTestPoloniexApi(object sender, EventArgs e)
         {
             MessageBox.Show("Testing API credentials...", "API Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chartEMA10_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

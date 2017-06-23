@@ -24,7 +24,7 @@ namespace DailyHighScanner
                 var tickers = new List<Ticker>();
                 foreach (var market in data)
                 {
-                    if (!Regex.IsMatch(market.Name, "BTC_") && market.Name != "USDT_BTC")
+                    if (Globals.Settings.ScannerOnlyBtcMarkets && !Regex.IsMatch(market.Name, "BTC_") && market.Name != "USDT_BTC")
                     {
                         continue;
                     }

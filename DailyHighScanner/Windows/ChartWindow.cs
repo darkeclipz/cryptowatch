@@ -105,7 +105,7 @@ namespace DailyHighScanner
                             stockChart.Series.Add(volumeSeries);
                             stockChart.Series["volume"].ChartType = SeriesChartType.Column;
                             stockChart.Series["volume"].YAxisType = AxisType.Secondary;
-                            stockChart.Series["volume"].Color = Color.LightGray;
+                            stockChart.Series["volume"].Color = Color.GhostWhite;
                             stockChart.ChartAreas[0].AxisY2.Minimum = 0;
                             stockChart.ChartAreas[0].AxisY2.Maximum = data.Max(d => d.Volume) * 1.5;
                             stockChart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.False;
@@ -146,6 +146,60 @@ namespace DailyHighScanner
                             }
                         }
 
+                        // Resistance
+                        if(Globals.Settings.ChartResistanceLevels)
+                        {
+                            var resistance = data.Take(data.Count - 3).Where(d => d.Close > d.Open).OrderByDescending(d => d.High).Take(Globals.Settings.ChartNumberOfLevels).ToList();
+                            for (int i = 0; i < Globals.Settings.ChartNumberOfLevels; i++)
+                            {
+                                var name = $"resistance_{i}";
+                                var resistanceSeries = new Series(name);
+                                stockChart.Series.Add(resistanceSeries);
+                                stockChart.Series[name].ChartType = SeriesChartType.Line;
+                                stockChart.Series[name].Color = Color.LightGray;
+                                var draw = false;
+                                for (int j = 0; j < data.Count; j++)
+                                {
+                                    if (data[j].High == resistance[i].High)
+                                    {
+                                        draw = true;
+                                    }
+
+                                    if (draw)
+                                    {
+                                        stockChart.Series[name].Points.AddXY(data[j].Date, resistance[i].High);
+                                    }
+                                }
+                            }
+                        }
+
+                        // Support
+                        if (Globals.Settings.ChartSupportLevels)
+                        {
+                            var support = data.Take(data.Count - 3).Where(d => d.Close < d.Open && d.Close < data.Last().Close).OrderByDescending(d => d.Low).Take(Globals.Settings.ChartNumberOfLevels).ToList();
+                            for (int i = 0; i < Globals.Settings.ChartNumberOfLevels; i++)
+                            {
+                                var name = $"support_{i}";
+                                var resistanceSeries = new Series(name);
+                                stockChart.Series.Add(resistanceSeries);
+                                stockChart.Series[name].ChartType = SeriesChartType.Line;
+                                stockChart.Series[name].Color = Color.LightGray;
+                                var draw = false;
+                                for (int j = 0; j < data.Count; j++)
+                                {
+                                    if (data[j].Low == support[i].Low)
+                                    {
+                                        draw = true;
+                                    }
+
+                                    if (draw)
+                                    {
+                                        stockChart.Series[name].Points.AddXY(data[j].Date, support[i].Low);
+                                    }
+                                }
+                            }
+                        }
+
                         // Price series
                         var priceSeries = new Series("price");
                         stockChart.Series.Add(priceSeries);
@@ -155,7 +209,7 @@ namespace DailyHighScanner
                         stockChart.Series["price"]["ShowOpenClose"] = "Both";
                         stockChart.Series["price"]["PointWidth"] = "0.5";
                         stockChart.Series["price"]["PriceUpColor"] = "MediumSeaGreen";
-                        stockChart.Series["price"]["PriceDownColor"] = "Tomato";
+                        stockChart.Series["price"]["PriceDownColor"] = "Red";
                         stockChart.Series["price"].Color = Color.DarkSlateGray;
                         //stockChart.Series["price"].BorderColor = Color.Transparent;
 
@@ -176,7 +230,7 @@ namespace DailyHighScanner
                     }));
                     _updating = false;
                 }
-                catch(Exception ex)
+                catch
                 {
                     UpdateChart();
                 }

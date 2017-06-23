@@ -56,6 +56,12 @@
     <Compile Include="Models\Candlestick.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="Windows\OpenPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\OpenPosition.Designer.cs">
+      <DependentUpon>OpenPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\OrderBookWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Windows\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\OpenPosition.resx">
+      <DependentUpon>OpenPosition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\OrderBookWindow.resx">
       <DependentUpon>OrderBookWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +174,7 @@
     <None Include="Resources\chart_line1.png" />
     <None Include="Resources\book.png" />
     <None Include="Resources\report.png" />
+    <None Include="Resources\basket_add.png" />
     <Content Include="scanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

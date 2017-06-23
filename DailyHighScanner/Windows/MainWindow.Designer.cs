@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,10 +45,10 @@
             this.chartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.symbolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart5minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart15minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart30minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,8 +183,7 @@
             this.tradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tradingToolStripMenuItem,
             this.toolStripSeparator3,
-            this.buyToolStripMenuItem,
-            this.sellToolStripMenuItem});
+            this.buyToolStripMenuItem});
             this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
             this.tradeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.tradeToolStripMenuItem.Text = "Trade";
@@ -191,7 +191,13 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
             // 
             // symbolToolStripMenuItem
             // 
@@ -207,25 +213,18 @@
             this.tradingToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.report;
             this.tradingToolStripMenuItem.Name = "tradingToolStripMenuItem";
             this.tradingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.tradingToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.tradingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.tradingToolStripMenuItem.Text = "Trading";
             this.tradingToolStripMenuItem.Click += new System.EventHandler(this.tradingToolStripMenuItem_Click);
             // 
             // buyToolStripMenuItem
             // 
-            this.buyToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.money_add;
+            this.buyToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.basket_add;
             this.buyToolStripMenuItem.Name = "buyToolStripMenuItem";
             this.buyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.buyToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.buyToolStripMenuItem.Text = "Buy";
-            // 
-            // sellToolStripMenuItem
-            // 
-            this.sellToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.money_delete;
-            this.sellToolStripMenuItem.Name = "sellToolStripMenuItem";
-            this.sellToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.sellToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.sellToolStripMenuItem.Text = "Sell";
+            this.buyToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.buyToolStripMenuItem.Text = "Open position";
+            this.buyToolStripMenuItem.Click += new System.EventHandler(this.buyToolStripMenuItem_Click);
             // 
             // chart5minToolStripMenuItem
             // 
@@ -379,7 +378,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelBtc;
         private System.Windows.Forms.ToolStripMenuItem tradeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chartsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chart5minToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chart15minToolStripMenuItem;
@@ -389,5 +387,6 @@
         private System.Windows.Forms.ToolStripMenuItem tradingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem orderBookToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }

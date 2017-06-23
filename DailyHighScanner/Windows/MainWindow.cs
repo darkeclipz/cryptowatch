@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +27,7 @@ namespace DailyHighScanner
         private ChartWindow _dChart;
         private TradingWindow _activeTrades;
         private OrderBookWindow _orderBook;
+        private OpenPositionWindow _openPosition;
 
         public MainWindow()
         {
@@ -33,6 +35,8 @@ namespace DailyHighScanner
             InitializeSettings();
             InitializeCharts();
             InitializeScanner();
+            InitializeOrderBook();
+            InitializeActiveTrades();
         }
 
         private void InitializeOrderBook()
@@ -140,7 +144,7 @@ namespace DailyHighScanner
         {
             if (_2hrChart == null || _2hrChart.IsDisposed)
             {
-                _2hrChart = new ChartWindow(PeriodType._2Hr, "2H");
+                _2hrChart = new ChartWindow(PeriodType._2Hr, "120");
                 _2hrChart.MdiParent = this;
                 _2hrChart.Show();
             }
@@ -276,6 +280,17 @@ namespace DailyHighScanner
         private void MainWindow_Load(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileVertical);
+            Toast("Application has been started.");
+        }
+
+        public void Toast(string message)
+        {
+            Task.Run(new Action(() =>
+            {
+                notifyIcon.BalloonTipText = message;
+                notifyIcon.BalloonTipTitle = "Cryptowatch";
+                notifyIcon.ShowBalloonTip(6000);
+            }));
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -323,6 +338,21 @@ namespace DailyHighScanner
         private void orderBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeOrderBook();
+        }
+
+        private void buyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_openPosition == null || _openPosition.IsDisposed)
+            {
+                _openPosition = new OpenPositionWindow();
+                _openPosition.MdiParent = this;
+                _openPosition.Show();
+            }
+            else
+            {
+                _openPosition.Focus();
+                _openPosition.WindowState = FormWindowState.Normal;
+            }
         }
     }
 }
