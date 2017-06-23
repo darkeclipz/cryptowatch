@@ -7,7 +7,6 @@ Cryptocurrency trading app for Poloniex.
  1. Clone the project in Visual Studio and build it.
  2. Open the application, and go to settings.
  3. Update settings accordingly.
- 4. Restart app
  
 Note: your API key + secret is pretty poorly encrypted in the configuration file. But it's encrypted nonetheless.
  
