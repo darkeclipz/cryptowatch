@@ -10,6 +10,10 @@ Clone the project, start it in Visual Studio, and build.
 
 **23-6-2017**
  - Added candlestick charts (5min/15min/30min/2hr/daily)
+ - Added EMA 10/20 to the charts
+ - Added volume to the charts
+ - Chart update bugfix
+ - Chart theming
 
 **22-6-2017**
  - Switched to MDI form layout.
@@ -22,15 +26,18 @@ Clone the project, start it in Visual Studio, and build.
  
  ## To do
   - Add settings
-  - See open orders on Poloniex
-  - Buy/sell on poloniex with the trading API
+  - See open orders
+  - Cancel open order
+  - Open a position
+  - Close a position
+  - Trading metrics/statistics
+  - Display balances
   - Show order book for selected symbol
   - Show order book histogram for selected symbol
-  - Trading position tracker with metrics (open/close trades)
-  - Add EMA 10/20 to the charts
-  - Add volume to the charts
   - Add Bittrex exchange.
   - Add logging & statistics.
+  - Add HTTP handler with queue for data requests.
+    - Implement data update event to update various windows
   
 ## Disclaimer
   
