@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DailyHighScanner.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace DailyHighScanner
 {
     public partial class MainWindow : Form
     {
+        private readonly string _settingsFilepath = @"Cryptowatch.Settings.json";
         private List<Symbol> Symbols { get; set; } = new List<Symbol>();
         private ScannerWindow _scanner;
         private ChartWindow _5minChart;
@@ -23,12 +26,24 @@ namespace DailyHighScanner
         public MainWindow()
         {
             InitializeComponent();
+            InitializeSettings();
             Initialize5MinChart();
             Initialize15MinChart();
             Initialize30MinChart();
             Initialize2HrMinChart();
             InitializeDChart();
             InitializeScanner();
+        }
+
+        private void InitializeSettings()
+        {
+            if(!File.Exists(_settingsFilepath))
+            {
+                var settings = new Settings();
+                settings.Save(_settingsFilepath);
+            }
+
+            Globals.Settings = Settings.Load(_settingsFilepath);
         }
 
         private void Initialize5MinChart()
