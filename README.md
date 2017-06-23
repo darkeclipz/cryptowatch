@@ -2,14 +2,20 @@
 
 Cryptocurrency trading app for Poloniex.
 
+#### Tip jar
+
+BTC: 12nx4c8T2zDYkLoHU4qnuSaSyBunx6Wzeb
+
 ## Installation
 
  1. Clone the project in Visual Studio and build it.
  2. Open the application, and go to settings.
- 3. Update settings accordingly.
- 4. Restart app
- 
-Note: your API key + secret is pretty poorly encrypted in the configuration file. But it's encrypted nonetheless.
+ 3. Set up the database connection string.
+ 4. Set up the API.
+
+**Requires:**
+ - .NET Framework
+ - SQL Server Express
  
 ## Changelog
 
@@ -19,6 +25,8 @@ Note: your API key + secret is pretty poorly encrypted in the configuration file
  - Added volume to the charts
  - Chart update bugfix
  - Chart theming
+ - Implemented settings
+ - Randomly generated IV per configuration file
 
 **22-6-2017**
  - Switched to MDI form layout.
