@@ -8,10 +8,14 @@ Clone the project, start it in Visual Studio, and build.
 
 ## Changelog
 
+**23-6-2017**
+ - Added candlestick charts (5min/15min/30min/2hr/daily)
+
 **22-6-2017**
  - Switched to MDI form layout.
+ - Added find symbol window.
+ - Added various menu items.
  - Added events for switching symbol.
- - Added charts (5min/15min/30min/2hr/daily)
 
 **21-6-2017**
  - Added daily-high crypto scanner.
@@ -25,6 +29,7 @@ Clone the project, start it in Visual Studio, and build.
   - Trading position tracker with metrics (open/close trades)
   - Add EMA 10/20 to the charts
   - Add volume to the charts
+  - Add Bittrex exchange.
   
 ## Disclaimer
   
