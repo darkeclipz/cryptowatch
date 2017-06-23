@@ -125,6 +125,7 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -188,9 +189,9 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabelSymbol
+            // toolStripLabelSymbol
             // 
-            this.toolStripLabelSymbol.Name = "toolStripStatusLabelSymbol";
+            this.toolStripLabelSymbol.Name = "toolStripLabelSymbol";
             this.toolStripLabelSymbol.Size = new System.Drawing.Size(50, 17);
             this.toolStripLabelSymbol.Text = "<none>";
             // 
@@ -200,9 +201,9 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(566, 17);
             this.toolStripStatusLabel1.Spring = true;
             // 
-            // toolStripStatusLabelBTC
+            // toolStripStatusLabelBtc
             // 
-            this.toolStripStatusLabelBtc.Name = "toolStripStatusLabelBTC";
+            this.toolStripStatusLabelBtc.Name = "toolStripStatusLabelBtc";
             this.toolStripStatusLabelBtc.Size = new System.Drawing.Size(154, 17);
             this.toolStripStatusLabelBtc.Text = "Requesting BTC/USD price...";
             // 

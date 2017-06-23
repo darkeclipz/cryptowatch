@@ -1,4 +1,5 @@
 ﻿using DailyHighScanner.Models;
+using DailyHighScanner.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,6 +150,7 @@ namespace DailyHighScanner
             if (openSymbolWindow.ShowDialog() == DialogResult.OK)
             {
                 SwitchSymbol(openSymbolWindow.Symbol);
+                openSymbolWindow.Close();
             }
         }
 
@@ -170,6 +172,16 @@ namespace DailyHighScanner
         private void MainWindow_Load(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var settingsWindow = new SettingsWindow();
+            if(settingsWindow.ShowDialog() == DialogResult.OK)
+            {
+                Globals.Settings.Save(_settingsFilepath);
+                settingsWindow.Close();
+            }
         }
     }
 }
