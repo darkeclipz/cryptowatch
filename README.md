@@ -19,6 +19,7 @@ Note: your API key + secret is pretty poorly encrypted in the configuration file
  - Added volume to the charts
  - Chart update bugfix
  - Chart theming
+ - Implemented settings
 
 **22-6-2017**
  - Switched to MDI form layout.
