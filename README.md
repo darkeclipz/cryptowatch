@@ -8,8 +8,6 @@ Cryptocurrency trading app for Poloniex.
  2. Open the application, and go to settings.
  3. Set up the database connection string.
  4. Set up the API.
- 
-Note: your API key + secret is pretty poorly encrypted in the configuration file. But it's encrypted nonetheless.
 
 **Requires:**
  - .NET Framework
@@ -24,6 +22,7 @@ Note: your API key + secret is pretty poorly encrypted in the configuration file
  - Chart update bugfix
  - Chart theming
  - Implemented settings
+ - Randomly generated IV per configuration file
 
 **22-6-2017**
  - Switched to MDI form layout.
