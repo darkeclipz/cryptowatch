@@ -30,6 +30,7 @@ Clone the project, start it in Visual Studio, and build.
   - Add EMA 10/20 to the charts
   - Add volume to the charts
   - Add Bittrex exchange.
+  - Add logging & statistics.
   
 ## Disclaimer
   
