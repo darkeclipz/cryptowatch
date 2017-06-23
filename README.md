@@ -9,6 +9,8 @@ Cryptocurrency trading app for Poloniex.
  3. Update settings accordingly.
  4. Restart app
  
+Note: your API key + secret is pretty poorly encrypted. But it's encrypted nonetheless in the configuration file.
+ 
 ## Changelog
 
 **23-6-2017**
