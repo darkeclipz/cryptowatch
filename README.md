@@ -4,7 +4,7 @@ Cryptocurrency trading app for Poloniex.
 
 ## Installation
 
-Clone the project, start it in Visual Studio, and build.
+Clone the project in Visual Studio and build it.
 
 ## Changelog
 
