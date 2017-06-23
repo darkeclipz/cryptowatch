@@ -23,8 +23,13 @@ namespace DailyHighScanner.Windows
             {
                 updateIntervalScanner.Value = Globals.Settings.ScannerRefreshIntervalMs;
                 updateIntervalCharts.Value = Globals.Settings.ChartRefreshIntervalMs;
+                chartPeriods.Value = Globals.Settings.ChartPeriodsToShow;
                 poloniexApiKey.Text = Globals.Settings.PoloniexApiKey;
                 poloniexApiSecret.Text = Globals.Settings.PoloniexApiSecret;
+                chartEMA10.Checked = Globals.Settings.ChartSMA10;
+                chartEMA20.Checked = Globals.Settings.ChartSMA20;
+                chartVolume.Checked = Globals.Settings.ChartVolume;
+                filterTopVolume.Value = Globals.Settings.ScannerFilterTopVolumeCount;
             }
             catch(Exception ex)
             {
@@ -38,8 +43,13 @@ namespace DailyHighScanner.Windows
             {
                 Globals.Settings.ScannerRefreshIntervalMs = (int)updateIntervalScanner.Value;
                 Globals.Settings.ChartRefreshIntervalMs = (int)updateIntervalCharts.Value;
+                Globals.Settings.ChartPeriodsToShow = (int)chartPeriods.Value;
                 Globals.Settings.PoloniexApiKey = poloniexApiKey.Text;
                 Globals.Settings.PoloniexApiSecret = poloniexApiSecret.Text;
+                Globals.Settings.ChartSMA10 = chartEMA10.Checked;
+                Globals.Settings.ChartSMA20 = chartEMA20.Checked;
+                Globals.Settings.ChartVolume = chartVolume.Checked;
+                Globals.Settings.ScannerFilterTopVolumeCount = (int)filterTopVolume.Value;
 
                 this.DialogResult = DialogResult.OK;
                 this.Hide();

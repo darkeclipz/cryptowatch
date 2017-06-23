@@ -18,7 +18,6 @@ namespace DailyHighScanner
         private bool filterHighVolume { get; set; } = true;
         private bool filterHighestLowest { get; set; } = true;
         private bool filterHideLosers { get; set; } = false;
-        private const int FILTER_SIZE = 40;
         // ..
 
         public List<Ticker> Tickers { get; set; } = new List<Ticker>();
@@ -42,9 +41,14 @@ namespace DailyHighScanner
         {
             _updateTimer = new Timer();
             _updateTimer.Tick += updateTimer_Tick;
-            _updateTimer.Interval = 1000 * 10;
+            _updateTimer.Interval = Globals.Settings.ScannerRefreshIntervalMs;
             _updateTimer.Start();
             updateTimer_Tick(this, null);
+        }
+
+        public void SetUpdateInterval(int interval)
+        {
+            _updateTimer.Interval = interval;
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)
@@ -58,8 +62,8 @@ namespace DailyHighScanner
 
                     if (filterHighVolume)
                     {
-                        polo = polo.OrderByDescending(t => t.BaseVolume).Take(FILTER_SIZE).ToList();
-                        bitrex = bitrex.OrderByDescending(t => t.BaseVolume).Take(FILTER_SIZE).ToList();
+                        polo = polo.OrderByDescending(t => t.BaseVolume).Take(Globals.Settings.ScannerFilterTopVolumeCount).ToList();
+                        bitrex = bitrex.OrderByDescending(t => t.BaseVolume).Take(Globals.Settings.ScannerFilterTopVolumeCount).ToList();
                     }
 
                     List<Ticker> tickers = new List<Ticker>();

@@ -19,7 +19,12 @@ namespace DailyHighScanner.Models
 
         public string PoloniexApiSecret { get; set; } = "none";
 
+        public int ScannerFilterTopVolumeCount = 40;
+
         public int ChartPeriodsToShow = 40;
+        public bool ChartSMA10 = true;
+        public bool ChartSMA20 = true;
+        public bool ChartVolume = true;
 
         public static Settings Load(string filepath)
         {

@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.updateIntervalCharts = new System.Windows.Forms.NumericUpDown();
-            this.updateIntervalScanner = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,23 +37,30 @@
             this.poloniexApiKey = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.chartEMA10 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.chartPeriods = new System.Windows.Forms.NumericUpDown();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chartEMA20 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.chartVolume = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.filterTopVolume = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.updateIntervalScanner = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.updateIntervalCharts = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPeriods)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterTopVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -71,104 +73,16 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Update interval scanner:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Update interval charts:";
-            // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(513, 275);
             this.tabControl.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.updateIntervalCharts);
-            this.tabPage1.Controls.Add(this.updateIntervalScanner);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(505, 249);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Data";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // updateIntervalCharts
-            // 
-            this.updateIntervalCharts.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.updateIntervalCharts.Location = new System.Drawing.Point(154, 44);
-            this.updateIntervalCharts.Maximum = new decimal(new int[] {
-            60000,
-            0,
-            0,
-            0});
-            this.updateIntervalCharts.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.updateIntervalCharts.Name = "updateIntervalCharts";
-            this.updateIntervalCharts.Size = new System.Drawing.Size(120, 20);
-            this.updateIntervalCharts.TabIndex = 3;
-            this.updateIntervalCharts.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            // 
-            // updateIntervalScanner
-            // 
-            this.updateIntervalScanner.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.updateIntervalScanner.Location = new System.Drawing.Point(154, 12);
-            this.updateIntervalScanner.Maximum = new decimal(new int[] {
-            60000,
-            0,
-            0,
-            0});
-            this.updateIntervalScanner.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.updateIntervalScanner.Name = "updateIntervalScanner";
-            this.updateIntervalScanner.Size = new System.Drawing.Size(120, 20);
-            this.updateIntervalScanner.TabIndex = 2;
-            this.updateIntervalScanner.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             // 
             // tabPage2
             // 
@@ -238,38 +152,14 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "API key:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(280, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "m/s";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "m/s";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 303);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(215, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Restart required if any settings are changed!";
-            // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.checkBox3);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.updateIntervalCharts);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.chartVolume);
             this.tabPage3.Controls.Add(this.checkBox2);
-            this.tabPage3.Controls.Add(this.checkBox1);
+            this.tabPage3.Controls.Add(this.chartEMA20);
             this.tabPage3.Controls.Add(this.chartPeriods);
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.chartEMA10);
@@ -283,7 +173,7 @@
             // chartEMA10
             // 
             this.chartEMA10.AutoSize = true;
-            this.chartEMA10.Location = new System.Drawing.Point(31, 58);
+            this.chartEMA10.Location = new System.Drawing.Point(27, 150);
             this.chartEMA10.Name = "chartEMA10";
             this.chartEMA10.Size = new System.Drawing.Size(64, 17);
             this.chartEMA10.TabIndex = 2;
@@ -302,7 +192,7 @@
             // 
             // chartPeriods
             // 
-            this.chartPeriods.Location = new System.Drawing.Point(69, 13);
+            this.chartPeriods.Location = new System.Drawing.Point(159, 13);
             this.chartPeriods.Minimum = new decimal(new int[] {
             10,
             0,
@@ -317,21 +207,22 @@
             0,
             0});
             // 
-            // checkBox1
+            // chartEMA20
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(31, 81);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "EMA 20";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chartEMA20.AutoSize = true;
+            this.chartEMA20.Location = new System.Drawing.Point(27, 173);
+            this.chartEMA20.Name = "chartEMA20";
+            this.chartEMA20.Size = new System.Drawing.Size(64, 17);
+            this.chartEMA20.TabIndex = 5;
+            this.chartEMA20.Text = "EMA 20";
+            this.chartEMA20.UseVisualStyleBackColor = true;
+            this.chartEMA20.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(31, 104);
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(27, 196);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(98, 17);
             this.checkBox2.TabIndex = 6;
@@ -339,22 +230,151 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // checkBox3
+            // chartVolume
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(219, 58);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(61, 17);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Volume";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chartVolume.AutoSize = true;
+            this.chartVolume.Location = new System.Drawing.Point(215, 150);
+            this.chartVolume.Name = "chartVolume";
+            this.chartVolume.Size = new System.Drawing.Size(61, 17);
+            this.chartVolume.TabIndex = 7;
+            this.chartVolume.Text = "Volume";
+            this.chartVolume.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.updateIntervalScanner);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.filterTopVolume);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(505, 249);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Scanner";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Filter top volume #";
+            // 
+            // filterTopVolume
+            // 
+            this.filterTopVolume.Location = new System.Drawing.Point(157, 13);
+            this.filterTopVolume.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.filterTopVolume.Name = "filterTopVolume";
+            this.filterTopVolume.Size = new System.Drawing.Size(120, 20);
+            this.filterTopVolume.TabIndex = 1;
+            this.filterTopVolume.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(283, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "m/s";
+            // 
+            // updateIntervalScanner
+            // 
+            this.updateIntervalScanner.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.updateIntervalScanner.Location = new System.Drawing.Point(157, 45);
+            this.updateIntervalScanner.Maximum = new decimal(new int[] {
+            60000,
+            0,
+            0,
+            0});
+            this.updateIntervalScanner.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.updateIntervalScanner.Name = "updateIntervalScanner";
+            this.updateIntervalScanner.Size = new System.Drawing.Size(120, 20);
+            this.updateIntervalScanner.TabIndex = 6;
+            this.updateIntervalScanner.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Update interval scanner:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(285, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "m/s";
+            // 
+            // updateIntervalCharts
+            // 
+            this.updateIntervalCharts.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.updateIntervalCharts.Location = new System.Drawing.Point(159, 50);
+            this.updateIntervalCharts.Maximum = new decimal(new int[] {
+            60000,
+            0,
+            0,
+            0});
+            this.updateIntervalCharts.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.updateIntervalCharts.Name = "updateIntervalCharts";
+            this.updateIntervalCharts.Size = new System.Drawing.Size(120, 20);
+            this.updateIntervalCharts.TabIndex = 9;
+            this.updateIntervalCharts.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Update interval charts:";
             // 
             // SettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 331);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(537, 331);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.buttonSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -364,29 +384,24 @@
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsWindow_Load);
             this.tabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPeriods)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterTopVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.NumericUpDown updateIntervalCharts;
-        private System.Windows.Forms.NumericUpDown updateIntervalScanner;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
@@ -394,15 +409,21 @@
         private System.Windows.Forms.TextBox poloniexApiKey;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chartEMA20;
         private System.Windows.Forms.NumericUpDown chartPeriods;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chartEMA10;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox chartVolume;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.NumericUpDown filterTopVolume;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown updateIntervalCharts;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown updateIntervalScanner;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -31,11 +31,7 @@ namespace DailyHighScanner
         {
             InitializeComponent();
             InitializeSettings();
-            Initialize5MinChart();
-            Initialize15MinChart();
-            Initialize30MinChart();
-            Initialize2HrMinChart();
-            InitializeDChart();
+            InitializeCharts();
             InitializeScanner();
         }
 
@@ -84,7 +80,7 @@ namespace DailyHighScanner
         {
             if(_5minChart == null || _5minChart.IsDisposed)
             {
-                _5minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._5Min, "5");
+                _5minChart = new ChartWindow(PeriodType._5Min, "5");
                 _5minChart.MdiParent = this;
                 _5minChart.Show();
             }
@@ -104,7 +100,7 @@ namespace DailyHighScanner
         {
             if (_15minChart == null || _15minChart.IsDisposed)
             {
-                _15minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._15Min, "15");
+                _15minChart = new ChartWindow(PeriodType._15Min, "15");
                 _15minChart.MdiParent = this;
                 _15minChart.Show();
             }
@@ -124,7 +120,7 @@ namespace DailyHighScanner
         {
             if (_30minChart == null || _30minChart.IsDisposed)
             {
-                _30minChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._30Min, "30");
+                _30minChart = new ChartWindow(PeriodType._30Min, "30");
                 _30minChart.MdiParent = this;
                 _30minChart.Show();
             }
@@ -144,7 +140,7 @@ namespace DailyHighScanner
         {
             if (_2hrChart == null || _2hrChart.IsDisposed)
             {
-                _2hrChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._2Hr, "2H");
+                _2hrChart = new ChartWindow(PeriodType._2Hr, "2H");
                 _2hrChart.MdiParent = this;
                 _2hrChart.Show();
             }
@@ -164,7 +160,7 @@ namespace DailyHighScanner
         {
             if (_dChart == null || _dChart.IsDisposed)
             {
-                _dChart = new ChartWindow(Globals.Settings.ChartPeriodsToShow, PeriodType._D, "D");
+                _dChart = new ChartWindow(PeriodType._D, "D");
                 _dChart.MdiParent = this;
                 _dChart.Show();
             }
@@ -178,6 +174,15 @@ namespace DailyHighScanner
             {
                 _dChart.SelectSymbol(SelectedSymbol);
             }
+        }
+
+        private void InitializeCharts()
+        {
+            Initialize5MinChart();
+            Initialize15MinChart();
+            Initialize30MinChart();
+            Initialize2HrMinChart();
+            InitializeDChart();
         }
 
         public void InitializeScanner()
@@ -208,12 +213,12 @@ namespace DailyHighScanner
 
             if(!string.IsNullOrEmpty(SelectedSymbol?.Name))
             {
-                var symbolLast = _scanner.Tickers.FirstOrDefault(s => s.Name == SelectedSymbol.Name).Last;
-                _5minChart.UpdateLast((double)symbolLast);
-                _15minChart.UpdateLast((double)symbolLast);
-                _30minChart.UpdateLast((double)symbolLast);
-                _2hrChart.UpdateLast((double)symbolLast);
-                _dChart.UpdateLast((double)symbolLast);
+                var last = _scanner.Tickers.FirstOrDefault(s => s.Name == SelectedSymbol.Name).Last;
+                _5minChart.UpdateLast((double)last);
+                _15minChart.UpdateLast((double)last);
+                _30minChart.UpdateLast((double)last);
+                _2hrChart.UpdateLast((double)last);
+                _dChart.UpdateLast((double)last);
             }
         }
 
@@ -279,7 +284,9 @@ namespace DailyHighScanner
             if(settingsWindow.ShowDialog() == DialogResult.OK)
             {
                 Globals.Settings.Save(_settingsFilepath);
+                _scanner.SetUpdateInterval(Globals.Settings.ScannerRefreshIntervalMs);
                 settingsWindow.Close();
+                InitializeCharts();
             }
         }
 

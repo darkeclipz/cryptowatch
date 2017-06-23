@@ -15,16 +15,14 @@ namespace DailyHighScanner
     {
         private Symbol _symbol { get; set; } = new Symbol();
         private Timer _timer { get; set; }
-        public int NumberOfCandles { get; private set; }
         public PeriodType PeriodType { get; private set; }
         public string PeriodTitle { get; private set; }
         private bool _updating = false;
 
-        public ChartWindow(int numberOfCandles, PeriodType periodType, string periodTitle)
+        public ChartWindow(PeriodType periodType, string periodTitle)
         {
             InitializeComponent();
             InitializeTimer();
-            NumberOfCandles = numberOfCandles;
             PeriodType = periodType;
             PeriodTitle = periodTitle;
         }
@@ -32,9 +30,14 @@ namespace DailyHighScanner
         private void InitializeTimer()
         {
             _timer = new Timer();
-            _timer.Interval = 1000 * 10;
+            _timer.Interval = Globals.Settings.ChartRefreshIntervalMs;
             _timer.Tick += timer_Tick;
             _timer.Start();
+        }
+
+        public void SetUpdateInterval(int interval)
+        {
+            _timer.Interval = interval;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -72,7 +75,7 @@ namespace DailyHighScanner
                 {
                     _updating = true;
                     string symbol = _symbol.Name;
-                    var data = Poloniex.Chart(_symbol, PeriodType, NumberOfCandles);
+                    var data = Poloniex.Chart(_symbol, PeriodType, Globals.Settings.ChartPeriodsToShow);
                     if(symbol != _symbol.Name)
                     {
                         return;
@@ -95,43 +98,52 @@ namespace DailyHighScanner
 
                         var timespan = data.Skip(1).Take(1).FirstOrDefault().Date - data.First().Date;
 
-                        // Volume series
-                        var volumeSeries = new Series("volume");
-                        stockChart.Series.Add(volumeSeries);
-                        stockChart.Series["volume"].ChartType = SeriesChartType.Column;
-                        stockChart.Series["volume"].YAxisType = AxisType.Secondary;
-                        stockChart.Series["volume"].Color = Color.LightGray;
-                        stockChart.ChartAreas[0].AxisY2.Minimum = 0;
-                        stockChart.ChartAreas[0].AxisY2.Maximum = data.Max(d => d.Volume) * 1.5;
-                        stockChart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.False;
-                        for (int i = 0; i < data.Count; i++)
+                        if(Globals.Settings.ChartVolume)
                         {
-                            stockChart.Series["volume"].Points.AddXY(data[i].Date, data[i].Volume);
-                        }
-                        stockChart.Series["volume"].Points.AddXY(data.Last().Date.AddMinutes(timespan.TotalMinutes), 0);
-
-                        // Average 1
-                        var avgSeries = new Series("average");
-                        stockChart.Series.Add(avgSeries);
-                        stockChart.Series["average"].ChartType = SeriesChartType.Line;
-                        stockChart.Series["average"]["LineTension"] = "1";
-                        stockChart.Series["average"].Color = Color.Red;
-                        for (int i = 0; i < data.Count; i ++)
-                        {
-                            if (data[i].SMA10 == 0) continue; 
-                            stockChart.Series["average"].Points.AddXY(data[i].Date, data[i].SMA10);
+                            // Volume series
+                            var volumeSeries = new Series("volume");
+                            stockChart.Series.Add(volumeSeries);
+                            stockChart.Series["volume"].ChartType = SeriesChartType.Column;
+                            stockChart.Series["volume"].YAxisType = AxisType.Secondary;
+                            stockChart.Series["volume"].Color = Color.LightGray;
+                            stockChart.ChartAreas[0].AxisY2.Minimum = 0;
+                            stockChart.ChartAreas[0].AxisY2.Maximum = data.Max(d => d.Volume) * 1.5;
+                            stockChart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.False;
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                stockChart.Series["volume"].Points.AddXY(data[i].Date, data[i].Volume);
+                            }
+                            stockChart.Series["volume"].Points.AddXY(data.Last().Date.AddMinutes(timespan.TotalMinutes), 0);
                         }
 
-                        // Average 2
-                        var avgSeries2 = new Series("average2");
-                        stockChart.Series.Add(avgSeries2);
-                        stockChart.Series["average2"].ChartType = SeriesChartType.Line;
-                        stockChart.Series["average2"]["LineTension"] = "1";
-                        stockChart.Series["average2"].Color = Color.Blue;
-                        for (int i = 0; i < data.Count; i++)
+                        if(Globals.Settings.ChartSMA10)
                         {
-                            if (data[i].SMA20 == 0) continue;
-                            stockChart.Series["average2"].Points.AddXY(data[i].Date, data[i].SMA20);
+                            // Average 1
+                            var avgSeries = new Series("average");
+                            stockChart.Series.Add(avgSeries);
+                            stockChart.Series["average"].ChartType = SeriesChartType.Line;
+                            stockChart.Series["average"]["LineTension"] = "1";
+                            stockChart.Series["average"].Color = Color.Red;
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                if (data[i].SMA10 == 0) continue;
+                                stockChart.Series["average"].Points.AddXY(data[i].Date, data[i].SMA10);
+                            }
+                        }
+
+                        if(Globals.Settings.ChartSMA20)
+                        {
+                            // Average 2
+                            var avgSeries2 = new Series("average2");
+                            stockChart.Series.Add(avgSeries2);
+                            stockChart.Series["average2"].ChartType = SeriesChartType.Line;
+                            stockChart.Series["average2"]["LineTension"] = "1";
+                            stockChart.Series["average2"].Color = Color.Blue;
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                if (data[i].SMA20 == 0) continue;
+                                stockChart.Series["average2"].Points.AddXY(data[i].Date, data[i].SMA20);
+                            }
                         }
 
                         // Price series
