@@ -4,8 +4,13 @@ Cryptocurrency trading app for Poloniex.
 
 ## Installation
 
-Clone the project in Visual Studio and build it.
-
+ 1. Clone the project in Visual Studio and build it.
+ 2. Open the application, and go to settings.
+ 3. Update settings accordingly.
+ 4. Restart app
+ 
+Note: your API key + secret is pretty poorly encrypted in the configuration file. But it's encrypted nonetheless.
+ 
 ## Changelog
 
 **23-6-2017**
@@ -23,21 +28,6 @@ Clone the project in Visual Studio and build it.
 
 **21-6-2017**
  - Added daily-high crypto scanner.
- 
- ## To do
-  - Add settings
-  - See open orders
-  - Cancel open order
-  - Open a position
-  - Close a position
-  - Trading metrics/statistics
-  - Display balances
-  - Show order book for selected symbol
-  - Show order book histogram for selected symbol
-  - Add Bittrex exchange.
-  - Add logging & statistics.
-  - Add HTTP handler with queue for data requests.
-    - Implement data update event to update various windows
   
 ## Disclaimer
   
