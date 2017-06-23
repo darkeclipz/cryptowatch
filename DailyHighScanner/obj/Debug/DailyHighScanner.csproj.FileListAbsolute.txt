@@ -1,0 +1,14 @@
+D:\Repos\DailyHighScanner\DailyHighScanner\bin\Debug\DailyHighScanner.exe.config
+D:\Repos\DailyHighScanner\DailyHighScanner\bin\Debug\DailyHighScanner.exe
+D:\Repos\DailyHighScanner\DailyHighScanner\bin\Debug\DailyHighScanner.pdb
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.csprojResolveAssemblyReference.cache
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.Properties.Resources.resources
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.csproj.GenerateResource.Cache
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.exe
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.pdb
+D:\Repos\DailyHighScanner\DailyHighScanner\bin\Debug\Newtonsoft.Json.dll
+D:\Repos\DailyHighScanner\DailyHighScanner\bin\Debug\Newtonsoft.Json.xml
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.MainWindow.resources
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.ChartWindow.resources
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.OpenSymbolWindow.resources
+D:\Repos\DailyHighScanner\DailyHighScanner\obj\Debug\DailyHighScanner.ScannerWindow.resources
