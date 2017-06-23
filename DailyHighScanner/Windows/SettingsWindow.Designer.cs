@@ -33,20 +33,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.updateIntervalScanner = new System.Windows.Forms.NumericUpDown();
             this.updateIntervalCharts = new System.Windows.Forms.NumericUpDown();
+            this.updateIntervalScanner = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -100,6 +100,20 @@
             this.tabPage1.Text = "Data";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // updateIntervalCharts
+            // 
+            this.updateIntervalCharts.Location = new System.Drawing.Point(154, 44);
+            this.updateIntervalCharts.Name = "updateIntervalCharts";
+            this.updateIntervalCharts.Size = new System.Drawing.Size(120, 20);
+            this.updateIntervalCharts.TabIndex = 3;
+            // 
+            // updateIntervalScanner
+            // 
+            this.updateIntervalScanner.Location = new System.Drawing.Point(154, 12);
+            this.updateIntervalScanner.Name = "updateIntervalScanner";
+            this.updateIntervalScanner.Size = new System.Drawing.Size(120, 20);
+            this.updateIntervalScanner.TabIndex = 2;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button2);
@@ -116,37 +130,14 @@
             this.tabPage2.Text = "API";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // button2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "API key:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "API secret:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(99, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(397, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(99, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(397, 20);
-            this.textBox2.TabIndex = 4;
+            this.button2.Location = new System.Drawing.Point(421, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Test";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -157,28 +148,38 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "The API key and secret will be saved encrypted in the settings file.";
             // 
-            // button2
+            // textBox2
             // 
-            this.button2.Location = new System.Drawing.Point(421, 73);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Test";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(99, 43);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
+            this.textBox2.Size = new System.Drawing.Size(397, 20);
+            this.textBox2.TabIndex = 4;
             // 
-            // updateIntervalScanner
+            // textBox1
             // 
-            this.updateIntervalScanner.Location = new System.Drawing.Point(154, 12);
-            this.updateIntervalScanner.Name = "updateIntervalScanner";
-            this.updateIntervalScanner.Size = new System.Drawing.Size(120, 20);
-            this.updateIntervalScanner.TabIndex = 2;
+            this.textBox1.Location = new System.Drawing.Point(99, 11);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(397, 20);
+            this.textBox1.TabIndex = 3;
             // 
-            // updateIntervalCharts
+            // label4
             // 
-            this.updateIntervalCharts.Location = new System.Drawing.Point(154, 44);
-            this.updateIntervalCharts.Name = "updateIntervalCharts";
-            this.updateIntervalCharts.Size = new System.Drawing.Size(120, 20);
-            this.updateIntervalCharts.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "API secret:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "API key:";
             // 
             // SettingsWindow
             // 
@@ -195,10 +196,10 @@
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalScanner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).EndInit();
             this.ResumeLayout(false);
 
         }
