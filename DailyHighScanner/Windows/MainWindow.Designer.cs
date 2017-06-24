@@ -32,36 +32,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.symbolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.chartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripLabelSymbol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelBtc = new System.Windows.Forms.ToolStripStatusLabel();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.symbolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.buyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart5minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart15minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart30minToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart2hrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartDayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyHighScannerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTTPRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hTTPRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripLabelSymbol = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelBtc = new System.Windows.Forms.ToolStripStatusLabel();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,15 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // symbolToolStripMenuItem
+            // 
+            this.symbolToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.magnifier;
+            this.symbolToolStripMenuItem.Name = "symbolToolStripMenuItem";
+            this.symbolToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.symbolToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.symbolToolStripMenuItem.Text = "Find symbol...";
+            this.symbolToolStripMenuItem.Click += new System.EventHandler(this.symbolToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -113,10 +122,28 @@
             this.tradeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.tradeToolStripMenuItem.Text = "Trade";
             // 
+            // tradingToolStripMenuItem
+            // 
+            this.tradingToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.report;
+            this.tradingToolStripMenuItem.Name = "tradingToolStripMenuItem";
+            this.tradingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.tradingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.tradingToolStripMenuItem.Text = "Trading";
+            this.tradingToolStripMenuItem.Click += new System.EventHandler(this.tradingToolStripMenuItem_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+            // 
+            // buyToolStripMenuItem
+            // 
+            this.buyToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.basket_add;
+            this.buyToolStripMenuItem.Name = "buyToolStripMenuItem";
+            this.buyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.buyToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.buyToolStripMenuItem.Text = "Open position";
+            this.buyToolStripMenuItem.Click += new System.EventHandler(this.buyToolStripMenuItem_Click);
             // 
             // chartsToolStripMenuItem
             // 
@@ -129,104 +156,6 @@
             this.chartsToolStripMenuItem.Name = "chartsToolStripMenuItem";
             this.chartsToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.chartsToolStripMenuItem.Text = "Charts";
-            // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dailyHighScannerToolStripMenuItem,
-            this.orderBookToolStripMenuItem,
-            this.hTTPRequestsToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.settingsToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(215, 6);
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tileHorizontalToolStripMenuItem,
-            this.verticalToolStripMenuItem,
-            this.cascadeToolStripMenuItem});
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.windowToolStripMenuItem.Text = "View";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem1});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.aboutToolStripMenuItem.Text = "Help";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelSymbol,
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabelBtc});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(785, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripLabelSymbol
-            // 
-            this.toolStripLabelSymbol.Name = "toolStripLabelSymbol";
-            this.toolStripLabelSymbol.Size = new System.Drawing.Size(50, 17);
-            this.toolStripLabelSymbol.Text = "<none>";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(566, 17);
-            this.toolStripStatusLabel1.Spring = true;
-            // 
-            // toolStripStatusLabelBtc
-            // 
-            this.toolStripStatusLabelBtc.Name = "toolStripStatusLabelBtc";
-            this.toolStripStatusLabelBtc.Size = new System.Drawing.Size(154, 17);
-            this.toolStripStatusLabelBtc.Text = "Requesting BTC/USD price...";
-            // 
-            // notifyIcon
-            // 
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon1";
-            this.notifyIcon.Visible = true;
-            // 
-            // symbolToolStripMenuItem
-            // 
-            this.symbolToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.magnifier;
-            this.symbolToolStripMenuItem.Name = "symbolToolStripMenuItem";
-            this.symbolToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.symbolToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.symbolToolStripMenuItem.Text = "Find symbol...";
-            this.symbolToolStripMenuItem.Click += new System.EventHandler(this.symbolToolStripMenuItem_Click);
-            // 
-            // tradingToolStripMenuItem
-            // 
-            this.tradingToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.report;
-            this.tradingToolStripMenuItem.Name = "tradingToolStripMenuItem";
-            this.tradingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.tradingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.tradingToolStripMenuItem.Text = "Trading";
-            this.tradingToolStripMenuItem.Click += new System.EventHandler(this.tradingToolStripMenuItem_Click);
-            // 
-            // buyToolStripMenuItem
-            // 
-            this.buyToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.basket_add;
-            this.buyToolStripMenuItem.Name = "buyToolStripMenuItem";
-            this.buyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.buyToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.buyToolStripMenuItem.Text = "Open position";
-            this.buyToolStripMenuItem.Click += new System.EventHandler(this.buyToolStripMenuItem_Click);
             // 
             // chart5minToolStripMenuItem
             // 
@@ -273,6 +202,18 @@
             this.chartDayToolStripMenuItem.Text = "Chart (day)";
             this.chartDayToolStripMenuItem.Click += new System.EventHandler(this.chartDayToolStripMenuItem_Click);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dailyHighScannerToolStripMenuItem,
+            this.orderBookToolStripMenuItem,
+            this.hTTPRequestsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.settingsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
             // dailyHighScannerToolStripMenuItem
             // 
             this.dailyHighScannerToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.chart_line;
@@ -291,6 +232,20 @@
             this.orderBookToolStripMenuItem.Text = "Order book";
             this.orderBookToolStripMenuItem.Click += new System.EventHandler(this.orderBookToolStripMenuItem_Click);
             // 
+            // hTTPRequestsToolStripMenuItem
+            // 
+            this.hTTPRequestsToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.world_link;
+            this.hTTPRequestsToolStripMenuItem.Name = "hTTPRequestsToolStripMenuItem";
+            this.hTTPRequestsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.hTTPRequestsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.hTTPRequestsToolStripMenuItem.Text = "HTTP requests";
+            this.hTTPRequestsToolStripMenuItem.Click += new System.EventHandler(this.hTTPRequestsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(215, 6);
+            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.cog;
@@ -298,6 +253,16 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tileHorizontalToolStripMenuItem,
+            this.verticalToolStripMenuItem,
+            this.cascadeToolStripMenuItem});
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.windowToolStripMenuItem.Text = "View";
             // 
             // tileHorizontalToolStripMenuItem
             // 
@@ -326,6 +291,14 @@
             this.cascadeToolStripMenuItem.Text = "Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.cascadeToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem1});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Text = "Help";
+            // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Image = global::Cryptowatch.App.Properties.Resources.information;
@@ -334,12 +307,41 @@
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
-            // hTTPRequestsToolStripMenuItem
+            // statusStrip1
             // 
-            this.hTTPRequestsToolStripMenuItem.Name = "hTTPRequestsToolStripMenuItem";
-            this.hTTPRequestsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.hTTPRequestsToolStripMenuItem.Text = "HTTP requests";
-            this.hTTPRequestsToolStripMenuItem.Click += new System.EventHandler(this.hTTPRequestsToolStripMenuItem_Click);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelSymbol,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelBtc});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(785, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripLabelSymbol
+            // 
+            this.toolStripLabelSymbol.Name = "toolStripLabelSymbol";
+            this.toolStripLabelSymbol.Size = new System.Drawing.Size(50, 17);
+            this.toolStripLabelSymbol.Text = "<none>";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(566, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // toolStripStatusLabelBtc
+            // 
+            this.toolStripStatusLabelBtc.Name = "toolStripStatusLabelBtc";
+            this.toolStripStatusLabelBtc.Size = new System.Drawing.Size(154, 17);
+            this.toolStripStatusLabelBtc.Text = "Requesting BTC/USD price...";
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
             // 
             // MainWindow
             // 

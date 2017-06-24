@@ -38,14 +38,14 @@
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(591, 458);
+            this.dataGridView.Size = new System.Drawing.Size(1492, 635);
             this.dataGridView.TabIndex = 0;
             // 
             // HttpRequestsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 458);
+            this.ClientSize = new System.Drawing.Size(1492, 635);
             this.Controls.Add(this.dataGridView);
             this.Name = "HttpRequestsWindow";
             this.ShowIcon = false;
