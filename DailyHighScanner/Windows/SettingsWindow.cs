@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cryptowatch.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,8 @@ namespace Cryptowatch.App.Windows
                 chartResistanceLevels.Checked = Globals.Settings.ChartResistanceLevels;
                 chartSupportLevels.Checked = Globals.Settings.ChartSupportLevels;
                 chartNumberOfLevels.Value = Globals.Settings.ChartNumberOfLevels;
+                apiTimeout.Value = Globals.Settings.ApiTimeoutMs;
+                connectionString.Text = Globals.Settings.DatabaseConnectionString;
             }
             catch(Exception ex)
             {
@@ -58,6 +61,8 @@ namespace Cryptowatch.App.Windows
                 Globals.Settings.ChartResistanceLevels = chartResistanceLevels.Checked;
                 Globals.Settings.ChartSupportLevels = chartSupportLevels.Checked;
                 Globals.Settings.ChartNumberOfLevels = (int)chartNumberOfLevels.Value;
+                Globals.Settings.ApiTimeoutMs = (int)apiTimeout.Value;
+                Globals.Settings.DatabaseConnectionString = connectionString.Text;
 
                 this.DialogResult = DialogResult.OK;
                 this.Hide();

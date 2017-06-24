@@ -1,4 +1,4 @@
-﻿using Cryptowatch.Data;
+﻿using Cryptowatch.Core;
 using Cryptowatch.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,6 @@ namespace Cryptowatch.App.Windows
 {
     public partial class MainWindow : Form
     {
-        private readonly string _settingsFilepath = @"Cryptowatch.Settings.json";
         private List<Symbol> Symbols { get; set; } = new List<Symbol>();
         private Symbol SelectedSymbol { get; set; }
         private ScannerWindow _scanner;
@@ -28,6 +27,8 @@ namespace Cryptowatch.App.Windows
         private TradingWindow _activeTrades;
         private OrderBookWindow _orderBook;
         private OpenPositionWindow _openPosition;
+        private CryptowatchEngine _engine;
+        private HttpRequestsWindow _httpRequests;
 
         public MainWindow()
         {
@@ -37,6 +38,23 @@ namespace Cryptowatch.App.Windows
             InitializeActiveTrades();
             InitializeOrderBook();
             InitializeCharts();
+
+            _engine = new CryptowatchEngine();
+        }
+
+        private void InitializeHttpRequests()
+        {
+            if (_httpRequests == null || _httpRequests.IsDisposed)
+            {
+                _httpRequests = new HttpRequestsWindow();
+                _httpRequests.MdiParent = this;
+                _httpRequests.Show();
+            }
+            else
+            {
+                _httpRequests.Focus();
+                _httpRequests.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void InitializeOrderBook()
@@ -71,20 +89,20 @@ namespace Cryptowatch.App.Windows
 
         private void InitializeSettings()
         {
-            if(!File.Exists(_settingsFilepath))
+            if(!File.Exists(Settings.SettingsFilepath))
             {
                 var settings = new Settings();
-                settings.Save(_settingsFilepath);
+                settings.Save(Settings.SettingsFilepath);
             }
 
-            Globals.Settings = Settings.Load(_settingsFilepath);
+            Globals.Settings = Settings.Load(Settings.SettingsFilepath);
         }
 
         private void Initialize5MinChart()
         {
             if(_5minChart == null || _5minChart.IsDisposed)
             {
-                _5minChart = new ChartWindow(PeriodType._5Min, "5");
+                _5minChart = new ChartWindow(ChartPeriod._5Min, "5");
                 _5minChart.MdiParent = this;
                 _5minChart.Show();
             }
@@ -96,7 +114,7 @@ namespace Cryptowatch.App.Windows
 
             if (SelectedSymbol != null)
             {
-                _5minChart.SelectSymbol(SelectedSymbol);
+                _5minChart.SetSymbol(SelectedSymbol);
             }
         }
 
@@ -104,7 +122,7 @@ namespace Cryptowatch.App.Windows
         {
             if (_15minChart == null || _15minChart.IsDisposed)
             {
-                _15minChart = new ChartWindow(PeriodType._15Min, "15");
+                _15minChart = new ChartWindow(ChartPeriod._15Min, "15");
                 _15minChart.MdiParent = this;
                 _15minChart.Show();
             }
@@ -116,7 +134,7 @@ namespace Cryptowatch.App.Windows
 
             if (SelectedSymbol != null)
             {
-                _15minChart.SelectSymbol(SelectedSymbol);
+                _15minChart.SetSymbol(SelectedSymbol);
             }
         }
 
@@ -124,7 +142,7 @@ namespace Cryptowatch.App.Windows
         {
             if (_30minChart == null || _30minChart.IsDisposed)
             {
-                _30minChart = new ChartWindow(PeriodType._30Min, "30");
+                _30minChart = new ChartWindow(ChartPeriod._30Min, "30");
                 _30minChart.MdiParent = this;
                 _30minChart.Show();
             }
@@ -136,7 +154,7 @@ namespace Cryptowatch.App.Windows
 
             if (SelectedSymbol != null)
             {
-                _30minChart.SelectSymbol(SelectedSymbol);
+                _30minChart.SetSymbol(SelectedSymbol);
             }
         }
 
@@ -144,7 +162,7 @@ namespace Cryptowatch.App.Windows
         {
             if (_2hrChart == null || _2hrChart.IsDisposed)
             {
-                _2hrChart = new ChartWindow(PeriodType._2Hr, "120");
+                _2hrChart = new ChartWindow(ChartPeriod._2Hr, "120");
                 _2hrChart.MdiParent = this;
                 _2hrChart.Show();
             }
@@ -156,7 +174,7 @@ namespace Cryptowatch.App.Windows
 
             if (SelectedSymbol != null)
             {
-                _2hrChart.SelectSymbol(SelectedSymbol);
+                _2hrChart.SetSymbol(SelectedSymbol);
             }
         }
 
@@ -164,7 +182,7 @@ namespace Cryptowatch.App.Windows
         {
             if (_dChart == null || _dChart.IsDisposed)
             {
-                _dChart = new ChartWindow(PeriodType._D, "D");
+                _dChart = new ChartWindow(ChartPeriod._D, "D");
                 _dChart.MdiParent = this;
                 _dChart.Show();
             }
@@ -176,7 +194,7 @@ namespace Cryptowatch.App.Windows
 
             if (SelectedSymbol != null)
             {
-                _dChart.SelectSymbol(SelectedSymbol);
+                _dChart.SetSymbol(SelectedSymbol);
             }
         }
 
@@ -208,6 +226,11 @@ namespace Cryptowatch.App.Windows
 
         private void scanner_OnTickerUpdate()
         {
+            if(!this.Created)
+            {
+                return;
+            }
+
             Symbols = _scanner.Tickers.Select(t => new Symbol { Name = t.Name, Exchange = t.Exchange }).ToList();
             var usdtBtc = _scanner.Tickers.FirstOrDefault(t => t.Name == "USDT_BTC");
             this.Invoke(new Action(() =>
@@ -218,11 +241,11 @@ namespace Cryptowatch.App.Windows
             if(!string.IsNullOrEmpty(SelectedSymbol?.Name))
             {
                 var last = _scanner.Tickers.FirstOrDefault(s => s.Name == SelectedSymbol.Name).Last;
-                _5minChart.UpdateLast((double)last);
-                _15minChart.UpdateLast((double)last);
-                _30minChart.UpdateLast((double)last);
-                _2hrChart.UpdateLast((double)last);
-                _dChart.UpdateLast((double)last);
+                _5minChart?.UpdateLast((double)last);
+                _15minChart?.UpdateLast((double)last);
+                _30minChart?.UpdateLast((double)last);
+                _2hrChart?.UpdateLast((double)last);
+                _dChart?.UpdateLast((double)last);
             }
         }
 
@@ -265,11 +288,12 @@ namespace Cryptowatch.App.Windows
         {
             toolStripLabelSymbol.Text = $"{symbol.Name}@{symbol.Exchange}";
             SelectedSymbol = symbol;
-            _5minChart?.SelectSymbol(symbol);
-            _15minChart?.SelectSymbol(symbol);
-            _30minChart?.SelectSymbol(symbol);
-            _2hrChart?.SelectSymbol(symbol);
-            _dChart?.SelectSymbol(symbol);
+            _engine.SetSymbol(symbol);
+            _5minChart?.SetSymbol(symbol);
+            _15minChart?.SetSymbol(symbol);
+            _30minChart?.SetSymbol(symbol);
+            _2hrChart?.SetSymbol(symbol);
+            _dChart?.SetSymbol(symbol);
         }
 
         private void dailyHighScannerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -298,9 +322,10 @@ namespace Cryptowatch.App.Windows
             var settingsWindow = new SettingsWindow();
             if(settingsWindow.ShowDialog() == DialogResult.OK)
             {
-                Globals.Settings.Save(_settingsFilepath);
-                _scanner.SetUpdateInterval(Globals.Settings.ScannerRefreshIntervalMs);
+                Globals.Settings.Save(Settings.SettingsFilepath);
                 settingsWindow.Close();
+
+                _engine.InitializeSettings();
                 InitializeCharts();
             }
         }
@@ -353,6 +378,11 @@ namespace Cryptowatch.App.Windows
                 _openPosition.Focus();
                 _openPosition.WindowState = FormWindowState.Normal;
             }
+        }
+
+        private void hTTPRequestsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeHttpRequests();
         }
     }
 }

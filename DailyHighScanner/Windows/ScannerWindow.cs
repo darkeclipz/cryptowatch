@@ -1,4 +1,5 @@
-﻿using Cryptowatch.Data;
+﻿using Cryptowatch.Core;
+using Cryptowatch.Core.Db;
 using Cryptowatch.Models;
 using System;
 using System.Collections.Generic;
@@ -43,34 +44,28 @@ namespace Cryptowatch.App.Windows
         {
             _updateTimer = new Timer();
             _updateTimer.Tick += updateTimer_Tick;
-            _updateTimer.Interval = Globals.Settings.ScannerRefreshIntervalMs;
+            _updateTimer.Interval = 1000;
             _updateTimer.Start();
             updateTimer_Tick(this, null);
-        }
-
-        public void SetUpdateInterval(int interval)
-        {
-            _updateTimer.Interval = interval;
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             Task.Run(new Action(() =>
             {
-                try
+                using (var db = new CryptowatchDbContext())
                 {
-                    var polo = Poloniex.Ticker();
-                    var bitrex = Bittrex.Ticker();
+                    var tickers = db.Tickers.ToList();
+                    if(tickers == null)
+                    {
+                        return;
+                    }
 
                     if (filterHighVolume)
                     {
-                        polo = polo.OrderByDescending(t => t.BaseVolume).Take(Globals.Settings.ScannerFilterTopVolumeCount).ToList();
-                        bitrex = bitrex.OrderByDescending(t => t.BaseVolume).Take(Globals.Settings.ScannerFilterTopVolumeCount).ToList();
+                        tickers = tickers.OrderByDescending(t => t.BaseVolume).Take(Globals.Settings.ScannerFilterTopVolumeCount).ToList();
                     }
 
-                    List<Ticker> tickers = new List<Ticker>();
-                    tickers.AddRange(polo);
-                    tickers.AddRange(bitrex);
                     Tickers = tickers;
                     OnTickerUpdate?.Invoke();
 
@@ -91,6 +86,7 @@ namespace Cryptowatch.App.Windows
                         dataGridView.Invoke(new Action(() =>
                         {
                             dataGridView.DataSource = records.OrderByDescending(r => r.PHigh).ToList();
+                            dataGridView.Columns["Id"].Visible = false;
                             foreach (DataGridViewRow row in dataGridView.Rows)
                             {
                                 row.DefaultCellStyle.BackColor = Color.White;
@@ -116,17 +112,10 @@ namespace Cryptowatch.App.Windows
                                     row.DefaultCellStyle.BackColor = Color.Purple;
                                 }
                             }
-                            toolStripLabelStatus.Text = $"Last update: {DateTime.Now.ToString("HH:mm:ss")}";
+                            toolStripLabelStatus.Text = $"Last update: {tickers.FirstOrDefault()?.Timestamp.ToString("HH:mm:ss") ?? "never"}";
                         }));
                     }
                     catch { }
-                }
-                catch
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        toolStripLabelStatus.Text = "Timeout on request!";
-                    }));
                 }
             }));
         }

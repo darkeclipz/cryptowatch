@@ -31,6 +31,10 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chartNumberOfLevels = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chartResistanceLevels = new System.Windows.Forms.CheckBox();
+            this.chartSupportLevels = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.updateIntervalCharts = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,12 +62,12 @@
             this.poloniexApiKey = new System.Windows.Forms.TextBox();
             this.poloniexApiSecret = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.chartSupportLevels = new System.Windows.Forms.CheckBox();
-            this.chartResistanceLevels = new System.Windows.Forms.CheckBox();
-            this.chartNumberOfLevels = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.apiTimeout = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartNumberOfLevels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPeriods)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -72,7 +76,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartNumberOfLevels)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -118,6 +122,57 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chartNumberOfLevels
+            // 
+            this.chartNumberOfLevels.Location = new System.Drawing.Point(342, 170);
+            this.chartNumberOfLevels.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.chartNumberOfLevels.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.chartNumberOfLevels.Name = "chartNumberOfLevels";
+            this.chartNumberOfLevels.Size = new System.Drawing.Size(120, 20);
+            this.chartNumberOfLevels.TabIndex = 14;
+            this.chartNumberOfLevels.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(266, 173);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "# of Levels:";
+            // 
+            // chartResistanceLevels
+            // 
+            this.chartResistanceLevels.AutoSize = true;
+            this.chartResistanceLevels.Location = new System.Drawing.Point(240, 136);
+            this.chartResistanceLevels.Name = "chartResistanceLevels";
+            this.chartResistanceLevels.Size = new System.Drawing.Size(109, 17);
+            this.chartResistanceLevels.TabIndex = 12;
+            this.chartResistanceLevels.Text = "Resistance levels";
+            this.chartResistanceLevels.UseVisualStyleBackColor = true;
+            // 
+            // chartSupportLevels
+            // 
+            this.chartSupportLevels.AutoSize = true;
+            this.chartSupportLevels.Location = new System.Drawing.Point(369, 136);
+            this.chartSupportLevels.Name = "chartSupportLevels";
+            this.chartSupportLevels.Size = new System.Drawing.Size(93, 17);
+            this.chartSupportLevels.TabIndex = 11;
+            this.chartSupportLevels.Text = "Support levels";
+            this.chartSupportLevels.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -357,6 +412,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.apiTimeout);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -427,62 +485,56 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(93, 185);
+            this.label5.Location = new System.Drawing.Point(102, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(320, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "The API key and secret will be saved encrypted in the settings file.";
             // 
-            // chartSupportLevels
+            // label12
             // 
-            this.chartSupportLevels.AutoSize = true;
-            this.chartSupportLevels.Location = new System.Drawing.Point(369, 136);
-            this.chartSupportLevels.Name = "chartSupportLevels";
-            this.chartSupportLevels.Size = new System.Drawing.Size(93, 17);
-            this.chartSupportLevels.TabIndex = 11;
-            this.chartSupportLevels.Text = "Support levels";
-            this.chartSupportLevels.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(461, 213);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(25, 13);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "m/s";
             // 
-            // chartResistanceLevels
+            // apiTimeout
             // 
-            this.chartResistanceLevels.AutoSize = true;
-            this.chartResistanceLevels.Location = new System.Drawing.Point(240, 136);
-            this.chartResistanceLevels.Name = "chartResistanceLevels";
-            this.chartResistanceLevels.Size = new System.Drawing.Size(109, 17);
-            this.chartResistanceLevels.TabIndex = 12;
-            this.chartResistanceLevels.Text = "Resistance levels";
-            this.chartResistanceLevels.UseVisualStyleBackColor = true;
-            // 
-            // chartNumberOfLevels
-            // 
-            this.chartNumberOfLevels.Location = new System.Drawing.Point(342, 170);
-            this.chartNumberOfLevels.Maximum = new decimal(new int[] {
-            10,
+            this.apiTimeout.Increment = new decimal(new int[] {
+            1000,
             0,
             0,
             0});
-            this.chartNumberOfLevels.Minimum = new decimal(new int[] {
-            1,
+            this.apiTimeout.Location = new System.Drawing.Point(335, 211);
+            this.apiTimeout.Maximum = new decimal(new int[] {
+            60000,
             0,
             0,
             0});
-            this.chartNumberOfLevels.Name = "chartNumberOfLevels";
-            this.chartNumberOfLevels.Size = new System.Drawing.Size(120, 20);
-            this.chartNumberOfLevels.TabIndex = 14;
-            this.chartNumberOfLevels.Value = new decimal(new int[] {
-            3,
+            this.apiTimeout.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.apiTimeout.Name = "apiTimeout";
+            this.apiTimeout.Size = new System.Drawing.Size(120, 20);
+            this.apiTimeout.TabIndex = 12;
+            this.apiTimeout.Value = new decimal(new int[] {
+            1000,
             0,
             0,
             0});
             // 
-            // label11
+            // label13
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(266, 173);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "# of Levels:";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(267, 213);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Timeout:";
             // 
             // SettingsWindow
             // 
@@ -500,6 +552,7 @@
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartNumberOfLevels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateIntervalCharts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPeriods)).EndInit();
             this.tabPage4.ResumeLayout(false);
@@ -512,7 +565,7 @@
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartNumberOfLevels)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiTimeout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -553,5 +606,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chartResistanceLevels;
         private System.Windows.Forms.CheckBox chartSupportLevels;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown apiTimeout;
+        private System.Windows.Forms.Label label13;
     }
 }

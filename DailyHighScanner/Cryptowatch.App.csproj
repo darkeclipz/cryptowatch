@@ -7,7 +7,7 @@
     <ProjectGuid>{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Cryptowatch.App</RootNamespace>
-    <AssemblyName>Cryptowatch.App</AssemblyName>
+    <AssemblyName>Cryptowatch</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,10 +35,17 @@
     <ApplicationIcon>btc-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -52,9 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Bittrex\BitrexTicker.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="Globals.cs" />
+    <Compile Include="Windows\HttpRequestsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\HttpRequestsWindow.Designer.cs">
+      <DependentUpon>HttpRequestsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\OpenPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +101,6 @@
     <Compile Include="Windows\OpenSymbolWindow.Designer.cs">
       <DependentUpon>OpenSymbolWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Poloniex\PoloniexTicker.cs" />
     <Compile Include="Windows\ScannerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +115,9 @@
     <Compile Include="Windows\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\HttpRequestsWindow.resx">
+      <DependentUpon>HttpRequestsWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\OpenPosition.resx">
       <DependentUpon>OpenPosition.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +186,10 @@
     <Content Include="scanner.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cryptowatch.Core\Cryptowatch.Core.csproj">
+      <Project>{9c854a6e-b467-4daf-8f0f-b592c81dcdd7}</Project>
+      <Name>Cryptowatch.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cryptowatch.Models\Cryptowatch.Models.csproj">
       <Project>{2F92D69D-F013-4A6E-A63E-72B82C8E015B}</Project>
       <Name>Cryptowatch.Models</Name>

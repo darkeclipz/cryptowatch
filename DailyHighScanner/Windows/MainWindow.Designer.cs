@@ -34,6 +34,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.chartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +45,6 @@
             this.toolStripLabelSymbol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelBtc = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.symbolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +61,7 @@
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTTPRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,11 +103,39 @@
             this.quitToolStripMenuItem.Text = "Exit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
+            // tradeToolStripMenuItem
+            // 
+            this.tradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tradingToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.buyToolStripMenuItem});
+            this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
+            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.tradeToolStripMenuItem.Text = "Trade";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+            // 
+            // chartsToolStripMenuItem
+            // 
+            this.chartsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chart5minToolStripMenuItem,
+            this.chart15minToolStripMenuItem,
+            this.chart30minToolStripMenuItem,
+            this.chart2hrToolStripMenuItem,
+            this.chartDayToolStripMenuItem});
+            this.chartsToolStripMenuItem.Name = "chartsToolStripMenuItem";
+            this.chartsToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.chartsToolStripMenuItem.Text = "Charts";
+            // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dailyHighScannerToolStripMenuItem,
             this.orderBookToolStripMenuItem,
+            this.hTTPRequestsToolStripMenuItem,
             this.toolStripSeparator2,
             this.settingsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -165,33 +194,6 @@
             this.toolStripStatusLabelBtc.Name = "toolStripStatusLabelBtc";
             this.toolStripStatusLabelBtc.Size = new System.Drawing.Size(154, 17);
             this.toolStripStatusLabelBtc.Text = "Requesting BTC/USD price...";
-            // 
-            // chartsToolStripMenuItem
-            // 
-            this.chartsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chart5minToolStripMenuItem,
-            this.chart15minToolStripMenuItem,
-            this.chart30minToolStripMenuItem,
-            this.chart2hrToolStripMenuItem,
-            this.chartDayToolStripMenuItem});
-            this.chartsToolStripMenuItem.Name = "chartsToolStripMenuItem";
-            this.chartsToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.chartsToolStripMenuItem.Text = "Charts";
-            // 
-            // tradeToolStripMenuItem
-            // 
-            this.tradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tradingToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.buyToolStripMenuItem});
-            this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
-            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.tradeToolStripMenuItem.Text = "Trade";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
             // 
             // notifyIcon
             // 
@@ -332,6 +334,13 @@
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
+            // hTTPRequestsToolStripMenuItem
+            // 
+            this.hTTPRequestsToolStripMenuItem.Name = "hTTPRequestsToolStripMenuItem";
+            this.hTTPRequestsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.hTTPRequestsToolStripMenuItem.Text = "HTTP requests";
+            this.hTTPRequestsToolStripMenuItem.Click += new System.EventHandler(this.hTTPRequestsToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,7 +352,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
-            this.Text = "CryptoWatch";
+            this.Text = "Cryptowatch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -388,5 +397,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem orderBookToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ToolStripMenuItem hTTPRequestsToolStripMenuItem;
     }
 }

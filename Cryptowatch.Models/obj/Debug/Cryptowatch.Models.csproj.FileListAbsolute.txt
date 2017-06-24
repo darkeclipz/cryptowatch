@@ -1,5 +1,5 @@
 D:\Repos\DailyHighScanner\Cryptowatch.Models\bin\Debug\Cryptowatch.Models.dll
 D:\Repos\DailyHighScanner\Cryptowatch.Models\bin\Debug\Cryptowatch.Models.pdb
-D:\Repos\DailyHighScanner\Cryptowatch.Models\obj\Debug\Cryptowatch.Models.csprojResolveAssemblyReference.cache
 D:\Repos\DailyHighScanner\Cryptowatch.Models\obj\Debug\Cryptowatch.Models.dll
 D:\Repos\DailyHighScanner\Cryptowatch.Models\obj\Debug\Cryptowatch.Models.pdb
+D:\Repos\DailyHighScanner\Cryptowatch.Models\obj\Debug\Cryptowatch.Models.csprojResolveAssemblyReference.cache
