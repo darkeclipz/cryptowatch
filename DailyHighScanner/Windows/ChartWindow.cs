@@ -243,7 +243,7 @@ namespace Cryptowatch.App.Windows
                             }
 
                             // Other
-                            toolStripLabel.Text = $"Last update: {DateTime.Now.ToString("HH:mm:ss")}";
+                            toolStripLabel.Text = $"Last update: {data.LastOrDefault().Timestamp.ToString("HH:mm:ss")}";
                             stockChart.Visible = true;
                         }));
 
@@ -255,32 +255,6 @@ namespace Cryptowatch.App.Windows
                     UpdateChart();
                 }
             }));
-        }
-
-        public void UpdateLast(double last)
-        {
-            if (string.IsNullOrEmpty(_symbol.Name))
-            {
-                return;
-            }
-
-            if(stockChart.InvokeRequired)
-            {
-                stockChart.Invoke(new Action(() => { UpdateLastOnChart(last); }));
-            }
-            else
-            {
-                UpdateLastOnChart(last);
-            }
-        }
-
-        private void UpdateLastOnChart(double @value)
-        {
-            try
-            {
-                stockChart.Series["price"].Points[stockChart.Series["price"].Points.Count - 1].YValues[3] = @value;
-            }
-            catch { }
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Cryptowatch.Models
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        public DateTime Timestamp { get; set; }
 
         public DateTime Date { get; set; }
         public decimal High { get; set; }

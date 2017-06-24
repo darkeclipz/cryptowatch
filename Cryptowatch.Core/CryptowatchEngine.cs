@@ -75,7 +75,7 @@ namespace Cryptowatch.Core
                         .Where(d => d.Status == Models.RequestStatus.Enqueued && d.DateExecuteAt <= DateTime.Now)
                         .OrderByDescending(d => d.Priority)
                         .ThenByDescending(d => d.DateCreated)
-                        .Take(5)
+                        .Take(2)
                         .ToList()
                         .ForEach(r =>
                         {
@@ -116,7 +116,8 @@ namespace Cryptowatch.Core
                             Status = RequestStatus.Enqueued,
                             Type = RequestType.Ticker,
                             ExceptionMessage = String.Empty,
-                            JsonResult = String.Empty
+                            JsonResult = String.Empty,
+                            Priority = RequestPriority.High
                         };
 
                         db.DataRequests.Add(tickerRequest);
@@ -188,7 +189,7 @@ namespace Cryptowatch.Core
                     #endregion
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
         }
 

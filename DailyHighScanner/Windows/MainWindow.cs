@@ -200,7 +200,6 @@ namespace Cryptowatch.App.Windows
 
         private void InitializeCharts()
         {
-           // Initialize5MinChart();
             Initialize15MinChart();
             Initialize30MinChart();
             Initialize2HrMinChart();
@@ -241,11 +240,11 @@ namespace Cryptowatch.App.Windows
             if(!string.IsNullOrEmpty(SelectedSymbol?.Name))
             {
                 var last = _scanner.Tickers.FirstOrDefault(s => s.Name == SelectedSymbol.Name).Last;
-                _5minChart?.UpdateLast((double)last);
-                _15minChart?.UpdateLast((double)last);
-                _30minChart?.UpdateLast((double)last);
-                _2hrChart?.UpdateLast((double)last);
-                _dChart?.UpdateLast((double)last);
+
+                this.Invoke(new Action(() =>
+                {
+                    this.Text = $"Cryptowatch ({SelectedSymbol.Name} {last})";
+                }));
             }
         }
 

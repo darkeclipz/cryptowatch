@@ -27,6 +27,7 @@ namespace Cryptowatch.Core.Requests.PostProcessingPolicies
             {
                 candlesticks.Add(new Candlestick
                 {
+                    Timestamp = DateTime.Now,
                     Date = DateTimeFromUnixDate((long)candle.date.Value),
                     High = (decimal)candle.high.Value,
                     Low = (decimal)candle.low.Value,
