@@ -33,10 +33,10 @@ namespace DailyHighScanner
         {
             InitializeComponent();
             InitializeSettings();
-            InitializeCharts();
             InitializeScanner();
-            InitializeOrderBook();
             InitializeActiveTrades();
+            InitializeOrderBook();
+            InitializeCharts();
         }
 
         private void InitializeOrderBook()
@@ -182,7 +182,7 @@ namespace DailyHighScanner
 
         private void InitializeCharts()
         {
-            Initialize5MinChart();
+           // Initialize5MinChart();
             Initialize15MinChart();
             Initialize30MinChart();
             Initialize2HrMinChart();
@@ -265,11 +265,11 @@ namespace DailyHighScanner
         {
             toolStripLabelSymbol.Text = $"{symbol.Name}@{symbol.Exchange}";
             SelectedSymbol = symbol;
-            _5minChart.SelectSymbol(symbol);
-            _15minChart.SelectSymbol(symbol);
-            _30minChart.SelectSymbol(symbol);
-            _2hrChart.SelectSymbol(symbol);
-            _dChart.SelectSymbol(symbol);
+            _5minChart?.SelectSymbol(symbol);
+            _15minChart?.SelectSymbol(symbol);
+            _30minChart?.SelectSymbol(symbol);
+            _2hrChart?.SelectSymbol(symbol);
+            _dChart?.SelectSymbol(symbol);
         }
 
         private void dailyHighScannerToolStripMenuItem_Click(object sender, EventArgs e)

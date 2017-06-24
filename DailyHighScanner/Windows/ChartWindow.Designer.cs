@@ -57,6 +57,7 @@
             this.stockChart.Size = new System.Drawing.Size(516, 277);
             this.stockChart.TabIndex = 0;
             this.stockChart.Text = "chart1";
+            this.stockChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.stockChart_MouseMove);
             // 
             // statusStrip1
             // 

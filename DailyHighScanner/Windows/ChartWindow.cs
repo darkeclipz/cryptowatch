@@ -92,7 +92,7 @@ namespace DailyHighScanner
                         stockChart.Titles.Add($"{_symbol.Name}, {_symbol.Exchange}, {PeriodTitle}");
                         stockChart.ChartAreas[0].AxisY.IsMarginVisible = true;
                         stockChart.ChartAreas[0].AxisX.IsMarginVisible = true;
-                        stockChart.ChartAreas[0].AxisY.LabelStyle.Format = "#.#########";
+                        stockChart.ChartAreas[0].AxisY.LabelStyle.Format = "#.########";
                         stockChart.ChartAreas[0].AxisX.LabelAutoFitMaxFontSize = 8;
                         stockChart.ChartAreas[0].AxisY.LabelAutoFitMaxFontSize = 8;
 
@@ -208,8 +208,8 @@ namespace DailyHighScanner
                         stockChart.Series["price"]["OpenCloseStyle"] = "Triangle";
                         stockChart.Series["price"]["ShowOpenClose"] = "Both";
                         stockChart.Series["price"]["PointWidth"] = "0.5";
-                        stockChart.Series["price"]["PriceUpColor"] = "MediumSeaGreen";
-                        stockChart.Series["price"]["PriceDownColor"] = "Red";
+                        stockChart.Series["price"]["PriceUpColor"] = "DarkGreen";
+                        stockChart.Series["price"]["PriceDownColor"] = "DarkRed";
                         stockChart.Series["price"].Color = Color.DarkSlateGray;
                         //stockChart.Series["price"].BorderColor = Color.Transparent;
 
@@ -261,6 +261,16 @@ namespace DailyHighScanner
                 stockChart.Series["price"].Points[stockChart.Series["price"].Points.Count - 1].YValues[3] = @value;
             }
             catch { }
+        }
+
+        private void stockChart_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePoint = new Point(e.X, e.Y);
+
+            //stockChart.ChartAreas[0].CursorX.SetCursorPixelPosition(mousePoint, true);
+            stockChart.ChartAreas[0].CursorY.SetCursorPixelPosition(mousePoint, true);
+
+            // ...
         }
     }
 }
