@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DailyHighScanner</RootNamespace>
-    <AssemblyName>DailyHighScanner</AssemblyName>
+    <RootNamespace>Cryptowatch.App</RootNamespace>
+    <AssemblyName>Cryptowatch.App</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,8 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Bittrex\BitrexTicker.cs" />
-    <Compile Include="Models\Candlestick.cs" />
-    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Windows\OpenPosition.cs">
       <SubType>Form</SubType>
@@ -93,7 +92,6 @@
       <DependentUpon>OpenSymbolWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Poloniex\PoloniexTicker.cs" />
-    <Compile Include="Models\Record.cs" />
     <Compile Include="Windows\ScannerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Symbol.cs" />
-    <Compile Include="Models\Ticker.cs" />
     <Compile Include="Windows\SettingsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +172,12 @@
     <None Include="Resources\report.png" />
     <None Include="Resources\basket_add.png" />
     <Content Include="scanner.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cryptowatch.Models\Cryptowatch.Models.csproj">
+      <Project>{2F92D69D-F013-4A6E-A63E-72B82C8E015B}</Project>
+      <Name>Cryptowatch.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

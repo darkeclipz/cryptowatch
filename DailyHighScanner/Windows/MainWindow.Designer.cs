@@ -1,4 +1,4 @@
-﻿namespace DailyHighScanner
+﻿namespace Cryptowatch.App.Windows
 {
     partial class MainWindow
     {
@@ -201,7 +201,7 @@
             // 
             // symbolToolStripMenuItem
             // 
-            this.symbolToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.magnifier;
+            this.symbolToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.magnifier;
             this.symbolToolStripMenuItem.Name = "symbolToolStripMenuItem";
             this.symbolToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.symbolToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
@@ -210,7 +210,7 @@
             // 
             // tradingToolStripMenuItem
             // 
-            this.tradingToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.report;
+            this.tradingToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.report;
             this.tradingToolStripMenuItem.Name = "tradingToolStripMenuItem";
             this.tradingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.tradingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
@@ -219,7 +219,7 @@
             // 
             // buyToolStripMenuItem
             // 
-            this.buyToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.basket_add;
+            this.buyToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.basket_add;
             this.buyToolStripMenuItem.Name = "buyToolStripMenuItem";
             this.buyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.buyToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
@@ -273,7 +273,7 @@
             // 
             // dailyHighScannerToolStripMenuItem
             // 
-            this.dailyHighScannerToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.chart_line;
+            this.dailyHighScannerToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.chart_line;
             this.dailyHighScannerToolStripMenuItem.Name = "dailyHighScannerToolStripMenuItem";
             this.dailyHighScannerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.dailyHighScannerToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
@@ -282,7 +282,7 @@
             // 
             // orderBookToolStripMenuItem
             // 
-            this.orderBookToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.book;
+            this.orderBookToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.book;
             this.orderBookToolStripMenuItem.Name = "orderBookToolStripMenuItem";
             this.orderBookToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.orderBookToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
@@ -291,7 +291,7 @@
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.cog;
+            this.settingsToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.cog;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -299,7 +299,7 @@
             // 
             // tileHorizontalToolStripMenuItem
             // 
-            this.tileHorizontalToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.application_tile_horizontal;
+            this.tileHorizontalToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.application_tile_horizontal;
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
             this.tileHorizontalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
             this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
@@ -308,7 +308,7 @@
             // 
             // verticalToolStripMenuItem
             // 
-            this.verticalToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.application_tile_vertical;
+            this.verticalToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.application_tile_vertical;
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
             this.verticalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
             this.verticalToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
@@ -317,7 +317,7 @@
             // 
             // cascadeToolStripMenuItem
             // 
-            this.cascadeToolStripMenuItem.Image = global::DailyHighScanner.Properties.Resources.application_cascade;
+            this.cascadeToolStripMenuItem.Image = global::Cryptowatch.App.Properties.Resources.application_cascade;
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
             this.cascadeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
@@ -326,7 +326,7 @@
             // 
             // aboutToolStripMenuItem1
             // 
-            this.aboutToolStripMenuItem1.Image = global::DailyHighScanner.Properties.Resources.information;
+            this.aboutToolStripMenuItem1.Image = global::Cryptowatch.App.Properties.Resources.information;
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";

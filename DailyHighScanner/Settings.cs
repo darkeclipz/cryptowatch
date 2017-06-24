@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DailyHighScanner.Models
+namespace Cryptowatch.App
 {
     public class Settings
     {

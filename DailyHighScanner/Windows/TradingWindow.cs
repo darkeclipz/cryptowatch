@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DailyHighScanner.Windows
+namespace Cryptowatch.App.Windows
 {
     public partial class TradingWindow : Form
     {

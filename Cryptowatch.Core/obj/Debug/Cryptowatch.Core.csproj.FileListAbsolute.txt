@@ -1,0 +1,5 @@
+D:\Repos\DailyHighScanner\Cryptowatch.Core\bin\Debug\Cryptowatch.Core.dll
+D:\Repos\DailyHighScanner\Cryptowatch.Core\bin\Debug\Cryptowatch.Core.pdb
+D:\Repos\DailyHighScanner\Cryptowatch.Core\obj\Debug\Cryptowatch.Core.csprojResolveAssemblyReference.cache
+D:\Repos\DailyHighScanner\Cryptowatch.Core\obj\Debug\Cryptowatch.Core.dll
+D:\Repos\DailyHighScanner\Cryptowatch.Core\obj\Debug\Cryptowatch.Core.pdb

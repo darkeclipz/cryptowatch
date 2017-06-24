@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DailyHighScanner
+namespace Cryptowatch.Models
 {
-    class DailyHighRecord
+    public class DailyHighRecord
     {
         public string Symbol { get; set; }
         public string Exchange { get; set; }

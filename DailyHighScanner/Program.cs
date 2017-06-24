@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Cryptowatch.App.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DailyHighScanner
+namespace Cryptowatch.App
 {
     static class Program
     {

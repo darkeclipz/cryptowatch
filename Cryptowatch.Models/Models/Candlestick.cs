@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DailyHighScanner.Models
+namespace Cryptowatch.Models
 {
-    class Candlestick
+    public class Candlestick
     {
         public DateTime Date { get; set; }
         public double High { get; set; }

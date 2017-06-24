@@ -1,4 +1,4 @@
-﻿namespace DailyHighScanner
+﻿namespace Cryptowatch.App.Windows
 {
     partial class ScannerWindow
     {

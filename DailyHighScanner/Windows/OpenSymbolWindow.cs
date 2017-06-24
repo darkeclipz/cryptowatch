@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cryptowatch.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DailyHighScanner
+namespace Cryptowatch.App.Windows
 {
     public partial class OpenSymbolWindow : Form
     {

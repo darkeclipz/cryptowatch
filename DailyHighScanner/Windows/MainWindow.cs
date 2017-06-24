@@ -1,5 +1,5 @@
-﻿using DailyHighScanner.Models;
-using DailyHighScanner.Windows;
+﻿using Cryptowatch.Data;
+using Cryptowatch.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DailyHighScanner
+namespace Cryptowatch.App.Windows
 {
     public partial class MainWindow : Form
     {
@@ -212,7 +212,7 @@ namespace DailyHighScanner
             var usdtBtc = _scanner.Tickers.FirstOrDefault(t => t.Name == "USDT_BTC");
             this.Invoke(new Action(() =>
             {
-                toolStripStatusLabelBtc.Text = $"USDT_BTC: {usdtBtc.Last.ToString()}";
+                toolStripStatusLabelBtc.Text = $"USDT_BTC: {usdtBtc?.Last.ToString() ?? "Error"}";
             }));
 
             if(!string.IsNullOrEmpty(SelectedSymbol?.Name))

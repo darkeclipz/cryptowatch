@@ -1,4 +1,4 @@
-﻿namespace DailyHighScanner
+﻿namespace Cryptowatch.App.Windows
 {
     partial class ChartWindow
     {
@@ -41,8 +41,8 @@
             // 
             // stockChart
             // 
-            this.stockChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.stockChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
             this.stockChart.ChartAreas.Add(chartArea1);
@@ -57,7 +57,6 @@
             this.stockChart.Size = new System.Drawing.Size(516, 277);
             this.stockChart.TabIndex = 0;
             this.stockChart.Text = "chart1";
-            this.stockChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.stockChart_MouseMove);
             // 
             // statusStrip1
             // 
@@ -77,8 +76,8 @@
             // 
             // statusLabel
             // 
-            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.ForeColor = System.Drawing.SystemColors.ScrollBar;

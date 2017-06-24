@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cryptowatch.Data;
+using Cryptowatch.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace DailyHighScanner
+namespace Cryptowatch.App.Windows
 {
     public partial class ChartWindow : Form
     {
@@ -25,6 +27,10 @@ namespace DailyHighScanner
             InitializeTimer();
             PeriodType = periodType;
             PeriodTitle = periodTitle;
+
+            //stockChart.BackColor = Color.Black;
+            //stockChart.ChartAreas[0].BackColor = Color.Black;
+            //this.BackColor = Color.Black;
         }
 
         private void InitializeTimer()
@@ -208,10 +214,9 @@ namespace DailyHighScanner
                         stockChart.Series["price"]["OpenCloseStyle"] = "Triangle";
                         stockChart.Series["price"]["ShowOpenClose"] = "Both";
                         stockChart.Series["price"]["PointWidth"] = "0.5";
-                        stockChart.Series["price"]["PriceUpColor"] = "DarkGreen";
-                        stockChart.Series["price"]["PriceDownColor"] = "DarkRed";
+                        stockChart.Series["price"]["PriceUpColor"] = "Green";
+                        stockChart.Series["price"]["PriceDownColor"] = "Red";
                         stockChart.Series["price"].Color = Color.DarkSlateGray;
-                        //stockChart.Series["price"].BorderColor = Color.Transparent;
 
                         var min = data.Min(d => d.Low);
                         stockChart.ChartAreas[0].AxisY.Minimum = min - (min / 100);
@@ -261,16 +266,6 @@ namespace DailyHighScanner
                 stockChart.Series["price"].Points[stockChart.Series["price"].Points.Count - 1].YValues[3] = @value;
             }
             catch { }
-        }
-
-        private void stockChart_MouseMove(object sender, MouseEventArgs e)
-        {
-            Point mousePoint = new Point(e.X, e.Y);
-
-            //stockChart.ChartAreas[0].CursorX.SetCursorPixelPosition(mousePoint, true);
-            stockChart.ChartAreas[0].CursorY.SetCursorPixelPosition(mousePoint, true);
-
-            // ...
         }
     }
 }

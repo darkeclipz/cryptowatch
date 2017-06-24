@@ -1,4 +1,5 @@
-﻿using DailyHighScanner.Models;
+﻿using Cryptowatch.App;
+using Cryptowatch.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DailyHighScanner
+namespace Cryptowatch.Data
 {
     class Poloniex
     {

@@ -1,0 +1,6 @@
+D:\Repos\DailyHighScanner\Cryptowatch.Service\bin\Debug\Cryptowatch.Service.exe.config
+D:\Repos\DailyHighScanner\Cryptowatch.Service\bin\Debug\Cryptowatch.Service.exe
+D:\Repos\DailyHighScanner\Cryptowatch.Service\bin\Debug\Cryptowatch.Service.pdb
+D:\Repos\DailyHighScanner\Cryptowatch.Service\obj\Debug\Cryptowatch.Service.csprojResolveAssemblyReference.cache
+D:\Repos\DailyHighScanner\Cryptowatch.Service\obj\Debug\Cryptowatch.Service.exe
+D:\Repos\DailyHighScanner\Cryptowatch.Service\obj\Debug\Cryptowatch.Service.pdb

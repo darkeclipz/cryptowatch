@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptowatch.App", "DailyHighScanner\Cryptowatch.App.csproj", "{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptowatch.Models", "Cryptowatch.Models\Cryptowatch.Models.csproj", "{2F92D69D-F013-4A6E-A63E-72B82C8E015B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptowatch.Core", "Cryptowatch.Core\Cryptowatch.Core.csproj", "{9C854A6E-B467-4DAF-8F0F-B592C81DCDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptowatch.Service", "Cryptowatch.Service\Cryptowatch.Service.csproj", "{A3B66047-508D-4467-81B9-A3CD51B1A105}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5805DB6-0383-4CB0-BEC3-749A2EDA1548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F92D69D-F013-4A6E-A63E-72B82C8E015B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F92D69D-F013-4A6E-A63E-72B82C8E015B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F92D69D-F013-4A6E-A63E-72B82C8E015B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F92D69D-F013-4A6E-A63E-72B82C8E015B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C854A6E-B467-4DAF-8F0F-B592C81DCDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C854A6E-B467-4DAF-8F0F-B592C81DCDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C854A6E-B467-4DAF-8F0F-B592C81DCDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C854A6E-B467-4DAF-8F0F-B592C81DCDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B66047-508D-4467-81B9-A3CD51B1A105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B66047-508D-4467-81B9-A3CD51B1A105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B66047-508D-4467-81B9-A3CD51B1A105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B66047-508D-4467-81B9-A3CD51B1A105}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
